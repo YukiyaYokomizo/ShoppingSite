@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../header.html"%>
 
-<p>IDまたはパスワードが違います。</p>
-<p><a href="login-in.jsp">ログイン画面へ戻る</p>
+<p>ログアウトしますか？</p>
+<p><a href="${pageContext.request.contextPath}/Logout.action">ログアウト</p>
 
 <%@include file="../footer.html"%>
