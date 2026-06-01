@@ -1,5 +1,5 @@
-@charset "UTF-8";
-.login-form {
+/* ログイン前の中央カード */
+.login-card {
   width: 400px;
   margin: 60px auto;
   padding: 30px;
@@ -10,16 +10,17 @@
   text-align: center;
 }
 
-.login-form h2 {
+.login-card h2 {
+  margin-top: 0;
   margin-bottom: 25px;
   color: #333;
 }
 
-.login-form p {
+.login-card p {
   margin-bottom: 18px;
 }
 
-.login-form label {
+.login-card label {
   display: block;
   text-align: left;
   margin-bottom: 6px;
@@ -27,8 +28,8 @@
   color: #444;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
+.login-card input[type="text"],
+.login-card input[type="password"] {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -37,8 +38,8 @@
   font-size: 16px;
 }
 
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus {
+.login-card input[type="text"]:focus,
+.login-card input[type="password"]:focus {
   outline: none;
   border-color: #4a90e2;
 }
@@ -47,66 +48,117 @@
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin-bottom: 0;
 }
 
-.button-area input {
+.button-area input[type="submit"],
+.button-area button {
   padding: 10px 18px;
   border: none;
   border-radius: 6px;
-  background-color: #4a90e2;
-  color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
-.button-area input:hover {
+.button-area input[type="submit"] {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.button-area input[type="submit"]:hover {
   background-color: #357abd;
 }
 
-.account-nav {
-  width: 700px;
-  margin: 30px auto 40px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #ccc;
-
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-}
-
-.account-nav-item {
-  border: none;
-  background: none;
+.new-registration {
+  background-color: #eee;
   color: #333;
-  font-size: 15px;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 4px 8px;
 }
 
-.account-nav-item:hover {
-  color: #4a90e2;
-  text-decoration: underline;
+.new-registration:hover {
+  background-color: #ddd;
+}
+
+.login-form {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 16px 32px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	font-family: Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+.welcome-text {
+	margin: 0;
+	font-size: 15px;
+	color: #333;
 }
 
 .menu {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
-  margin-bottom: 30px;
-
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-left: auto;
 }
 
 .menu a {
-  color: #333;
-  text-decoration: none;
-  font-size: 15px;
-  padding: 4px 8px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
 }
 
-.menu a:hover {
-  color: #4a90e2;
-  text-decoration: underline;
+.name{
+	display: flex;
+}
+
+.chatbot-button {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chatbot-window {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    background-color: white;
+    display: none;
+    z-index: 1000;
+}
+
+.chatbot-window.show {
+    display: block;
+}
+
+.chatbot-header {
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.chatbot-body {
+    padding: 15px;
+}
+
+.chatbot-body button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
 }

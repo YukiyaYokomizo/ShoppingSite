@@ -21,9 +21,12 @@ public class LoginAction extends Action {
 		UsersDAO dao=new UsersDAO();
 		Users user=dao.search(memberId, password);
 		
-		if(user != null) {
+		if(user != null && user.getAdmin()==0) {
 			session.setAttribute("user", user);
 			return "user-menu.jsp";
+		}else if(user != null && user.getAdmin()!=0) {
+			session.setAttribute("user", user);
+			return "admin-menu.jsp";
 		}
 		return "login-error.jsp";
 	}

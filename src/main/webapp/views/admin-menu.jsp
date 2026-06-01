@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <%
 if (session.getAttribute("user") == null) {
 	response.sendRedirect(request.getContextPath() + "/views/login-in.jsp");
@@ -24,12 +23,10 @@ window.addEventListener("pageshow", function(event) {
 </script>
 
 <form class="login-form">
-	<p class="welcome-text">ようこそ、${user.lastName}さん</p>
+	<p class="welcome-text">ようこそ、管理者${user.lastName}さん</p>
 	<div class="menu">
 		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
-		<!-- <p><input type="submit" value="変更"></p> -->
-		<a href="${pageContext.request.contextPath}/views/delete.jsp">削除</a>
-		<!-- <p><input type="submit" value="削除"></p> -->
+		<a href="${pageContext.request.contextPath}/views/delete.jsp">管理</a>
 		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
 	</div>
 </form>
