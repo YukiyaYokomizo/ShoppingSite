@@ -16,8 +16,9 @@ public class LoginAction extends Action {
 		
 		HttpSession session=request.getSession();
 		
-		String memberId=request.getParameter("id");
-		String password=request.getParameter("password");
+		String memberId = request.getParameter("id");
+		String password = request.getParameter("password");
+		
 		UsersDAO dao=new UsersDAO();
 		Users user=dao.search(memberId, password);
 		
