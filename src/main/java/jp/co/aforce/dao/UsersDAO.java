@@ -34,6 +34,7 @@ public class UsersDAO extends DAO {
 		return user;
 	}
 
+//新規追加
 	public int insert(String memberId, String password, String lastName, String firstName, String address,
 			String mailAddress) throws Exception {
 
@@ -130,4 +131,16 @@ public class UsersDAO extends DAO {
 
 		return line;
 	}
+	
+	public int delete(String memberId)throws Exception{
+		Connection con=getConnection();
+		
+		PreparedStatement st=con.prepareStatement("delete from users where MEMBER_ID=?");
+		
+		st.setString(1, memberId);
+		
+		return st.executeUpdate();
+	}
 }
+
+

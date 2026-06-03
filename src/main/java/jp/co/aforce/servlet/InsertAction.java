@@ -16,7 +16,7 @@ public class InsertAction extends Action {
 		String lastName = request.getParameter("lastname");
 		String firstName = request.getParameter("firstname");
 		String address = request.getParameter("address");
-		String mailAddress = request.getParameter("e-mail");
+		String mailAddress = request.getParameter("mailaddress");
 
 		UsersDAO dao = new UsersDAO();
 		

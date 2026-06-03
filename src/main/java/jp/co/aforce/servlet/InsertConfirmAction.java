@@ -7,13 +7,12 @@ import jp.co.aforce.beans.Users;
 import jp.co.aforce.dao.UsersDAO;
 import jp.co.aforce.tool.Action;
 
-public class UpdateConfirmAction extends Action {
+public class InsertConfirmAction extends Action {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String oldMemberId = request.getParameter("oldMemberId");
 		String memberId = request.getParameter("id");
 		String password = request.getParameter("password");
 		String lastName = request.getParameter("lastname");
@@ -38,26 +37,23 @@ public class UpdateConfirmAction extends Action {
 				|| isBlank(mailAddress)) {
 
 			request.setAttribute("errorMessage", "未入力の項目があります。すべて入力してください。");
-			request.setAttribute("user", userForm);
-			request.setAttribute("oldMemberId", oldMemberId);
+			request.setAttribute("userForm", userForm);
 
-			return "update.jsp";
+			return "new-registration.jsp";
 		}
 
 		UsersDAO dao = new UsersDAO();
 
-		if (!memberId.equals(oldMemberId) && dao.existsMemberId(memberId)) {
+		if (dao.existsMemberId(memberId)) {
 			request.setAttribute("errorMessage", "このIDはすでに使用されています。");
-			request.setAttribute("user", userForm);
-			request.setAttribute("oldMemberId", oldMemberId);
-
-			return "update.jsp";
+			request.setAttribute("userForm", userForm);
+			
+			return "new-registration.jsp";
 		}
 
 		request.setAttribute("userForm", userForm);
-		request.setAttribute("oldMemberId", oldMemberId);
-
-		return "update-confirm.jsp";
+		
+		return "registration-confirm.jsp";
 	}
 
 	private boolean isBlank(String value) {

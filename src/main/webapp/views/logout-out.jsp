@@ -3,5 +3,6 @@
 <%@include file="../header.html"%>
 
 <p>ログアウトしました。</p>
+<p><a href="${pageContext.request.contextPath}/views/login-in.jsp">ログイン画面へ戻る</a></p>
 
 <%@include file="../footer.html"%>

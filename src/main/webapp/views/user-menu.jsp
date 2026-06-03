@@ -27,9 +27,7 @@ window.addEventListener("pageshow", function(event) {
 	<p class="welcome-text">ようこそ、${user.lastName}さん</p>
 	<div class="menu">
 		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
-		<!-- <p><input type="submit" value="変更"></p> -->
 		<a href="${pageContext.request.contextPath}/views/delete.jsp">削除</a>
-		<!-- <p><input type="submit" value="削除"></p> -->
 		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
 	</div>
 </form>

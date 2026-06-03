@@ -4,5 +4,6 @@
 <%@include file="../header.html"%>
 
 <p>登録完了しました。</p>
+<p><a href="${pageContext.request.contextPath}/views/user-menu.jsp">トップページへ</a></p>
 
 <%@include file="../footer.html"%>
