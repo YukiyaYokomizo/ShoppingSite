@@ -1,34 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%
-if (session.getAttribute("user") == null) {
-	response.sendRedirect(request.getContextPath() + "/views/login-in.jsp");
-	return;
-}
-%>
-
 <%@include file="../header.html"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
 
-<script>
-window.addEventListener("pageshow", function(event) {
-    const nav = performance.getEntriesByType("navigation")[0];
+<div class="login-card">
 
-    if (event.persisted || (nav && nav.type === "back_forward")) {
-        location.reload();
-    }
-});
-</script>
+	<h2>会員一覧</h2>
 
-<form class="login-form">
-	<p class="welcome-text">ようこそ、管理者${user.lastName}さん</p>
-	<div class="menu">
-		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
-		<a href="${pageContext.request.contextPath}/views/administration.jsp">管理</a>
-		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
-	</div>
-</form>
+	<table class="users-table">
+		<tr>
+			<th>ID</th>
+			<th>パスワード</th>
+			<th>姓</th>
+			<th>名</th>
+			<th>住所</th>
+			<th>メールアドレス</th>
+			<th>権限</th>
+		</tr>
+
+		<c:forEach var="user" items="${usersList}">
+			<tr>
+				<td>${user.memberId}</td>
+				<td>${user.password}</td>
+				<td>${user.lastName}</td>
+				<td>${user.firstName}</td>
+				<td>${user.address}</td>
+				<td>${user.mailAddress}</td>
+				<td>${user.admin}</td>
+			</tr>
+		</c:forEach>
+	</table>
+
+	<p>
+		<a href="${pageContext.request.contextPath}/views/admin-menu.jsp">メニューへ戻る</a>
+	</p>
+
+</div>
 
 <%@include file="../footer.html"%>

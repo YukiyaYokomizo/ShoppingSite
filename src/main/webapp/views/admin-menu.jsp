@@ -26,7 +26,7 @@ window.addEventListener("pageshow", function(event) {
 	<p class="welcome-text">ようこそ、管理者${user.lastName}さん</p>
 	<div class="menu">
 		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
-		<a href="${pageContext.request.contextPath}/views/administration.jsp">管理</a>
+		<a href="${pageContext.request.contextPath}/Admin.action">管理</a>
 		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
 	</div>
 </form>

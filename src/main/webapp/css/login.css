@@ -114,6 +114,7 @@
 
 .name{
 	display: flex;
+	gap: 16px;
 }
 
 .chatbot-button {
@@ -162,3 +163,59 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.error-message {
+	color: red;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+.js-error {
+	display: block;
+	color: red;
+	font-size: 13px;
+	margin-top: 4px;
+}
+
+.input-error {
+	border: 2px solid red;
+	background-color: #fff5f5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

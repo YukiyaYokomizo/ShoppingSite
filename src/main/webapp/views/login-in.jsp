@@ -22,9 +22,12 @@
 		<input type="submit" value="ログイン">
 	</p>
 	<p>
-		<a href="${pageContext.request.contextPath}/views/new-registration.jsp">新規会員登録</a>
+		<a href="${pageContext.request.contextPath}/views/forget-pass.jsp">パスワードを忘れた方はコチラ</a>
 	</p>
 </form>
+
+
+
 
 <div class="chatbot">
     <button class="chatbot-button" onclick="toggleChat()">💬</button>
@@ -35,7 +38,7 @@
         </div>
 
         <div class="chatbot-body">
-            <p>こんにちは！ご用件を選んでください。</p>
+            <p>こんにちは！ご用件をお選びください！</p>
             <button>ログインについて</button>
             <button>会員登録について</button>
             <button>退会について</button>

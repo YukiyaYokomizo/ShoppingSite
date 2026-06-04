@@ -21,13 +21,16 @@
 		パスワード <input type="password" name="password" value="${user.password}">
 	</p>
 
-	<p>
-		名前(姓) <input type="text" name="lastname" value="${user.lastName}">
-	</p>
-
-	<p>
-		名前(名) <input type="text" name="firstname" value="${user.firstName}">
-	</p>
+	<div class="name">
+		<p>
+			<label for="lastname">名前(姓)</label> <input type="text" id="lastname"
+				name="lastname" value="${user.lastName}">
+		</p>
+		<p>
+			<label for="firstname">名前(名)</label> <input type="text"
+				id="firstname" name="firstname" value="${user.firstName}">
+		</p>
+	</div>
 
 	<p>
 		住所 <input type="text" name="address" value="${user.address}">

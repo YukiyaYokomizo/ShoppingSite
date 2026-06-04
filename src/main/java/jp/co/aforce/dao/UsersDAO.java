@@ -3,6 +3,8 @@ package jp.co.aforce.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.co.aforce.beans.Users;
 
@@ -141,6 +143,79 @@ public class UsersDAO extends DAO {
 		
 		return st.executeUpdate();
 	}
+	
+	public List<Users> searchAll() throws Exception{
+		List<Users> usersList= new ArrayList<>();
+		Connection con=getConnection();
+		PreparedStatement st=con.prepareStatement("select * from users");
+		ResultSet rs=st.executeQuery();
+		
+		while(rs.next()) {
+			Users user=new Users();
+			
+			user.setMemberId(rs.getString("MEMBER_ID"));
+			user.setPassword(rs.getString("PASSWORD"));
+			user.setLastName(rs.getString("LAST_NAME"));
+			user.setFirstName(rs.getString("FIRST_NAME"));
+			user.setAddress(rs.getString("ADDRESS"));
+			user.setMailAddress(rs.getString("MAIL_ADDRESS"));
+			user.setAdmin(rs.getInt("flag"));
+			
+			usersList.add(user);
+		}
+		rs.close();
+		st.close();
+		con.close();
+		
+		return usersList;
+	}
+	
+	// メールアドレスからユーザーを検索
+	public Users searchByMailAddress(String mailAddress) throws Exception {
+
+		Users user = null;
+
+		Connection con = getConnection();
+
+		PreparedStatement st = con.prepareStatement(
+			"select * from users where MAIL_ADDRESS = ?"
+		);
+
+		st.setString(1, mailAddress);
+
+		ResultSet rs = st.executeQuery();
+
+		if (rs.next()) {
+			user = new Users();
+
+			user.setMemberId(rs.getString("MEMBER_ID"));
+			user.setPassword(rs.getString("PASSWORD"));
+			user.setLastName(rs.getString("LAST_NAME"));
+			user.setFirstName(rs.getString("FIRST_NAME"));
+			user.setAddress(rs.getString("ADDRESS"));
+			user.setMailAddress(rs.getString("MAIL_ADDRESS"));
+			user.setAdmin(rs.getInt("flag"));
+		}
+
+		rs.close();
+		st.close();
+		con.close();
+
+		return user;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

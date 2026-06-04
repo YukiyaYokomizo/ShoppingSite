@@ -35,7 +35,7 @@
 
 	<form action="${pageContext.request.contextPath}/views/update.jsp"
 		method="post">
-		<input type="submit" value="戻る">
+		<input type="button" value="戻る" onclick="history.back()">
 	</form>
 
 </div>

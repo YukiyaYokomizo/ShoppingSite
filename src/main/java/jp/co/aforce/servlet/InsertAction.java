@@ -4,7 +4,9 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
+import jp.co.aforce.beans.Users;
 import jp.co.aforce.dao.UsersDAO;
 import jp.co.aforce.tool.Action;
 
@@ -22,6 +24,17 @@ public class InsertAction extends Action {
 		
 		try {
 			dao.insert(memberId, password, lastName, firstName, address, mailAddress);
+			Users user = new Users();
+			user.setMemberId(memberId);
+			user.setPassword(password);
+			user.setLastName(lastName);
+			user.setFirstName(firstName);
+			user.setAddress(address);
+			user.setMailAddress(mailAddress);
+			user.setAdmin(0);
+
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			return "complete-register.jsp";
 
 		} catch (SQLIntegrityConstraintViolationException e) {

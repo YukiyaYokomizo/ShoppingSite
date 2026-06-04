@@ -8,17 +8,6 @@ import jp.co.aforce.beans.Users;
 import jp.co.aforce.dao.UsersDAO;
 import jp.co.aforce.tool.Action;
 
-//public class DeleteAction extends Action {
-//	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		request.setCharacterEncoding("UTF-8");
-//		String memberId = request.getParameter("id");
-//		UsersDAO dao = new UsersDAO();
-//		dao.delete(memberId);
-//		return "complete-delete.jsp";
-//		
-//	}
-//
-//}
 
 public class DeleteAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

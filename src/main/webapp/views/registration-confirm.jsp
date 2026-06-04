@@ -33,7 +33,7 @@
 	<form
 		action="${pageContext.request.contextPath}/views/new-registration.jsp"
 		method="post">
-		<input type="submit" value="戻る">
+		<input type="button" value="戻る" onclick="history.back()">
 	</form>
 
 </div>
