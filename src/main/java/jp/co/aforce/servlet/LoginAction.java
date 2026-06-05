@@ -24,10 +24,10 @@ public class LoginAction extends Action {
 		
 		if(user != null && user.getAdmin()==0) {
 			session.setAttribute("user", user);
-			return "user-menu.jsp";
+			return "redirect:user-menu.jsp";
 		}else if(user != null && user.getAdmin()!=0) {
 			session.setAttribute("user", user);
-			return "admin-menu.jsp";
+			return "redirect:admin-menu.jsp";
 		}
 		return "login-error.jsp";
 	}

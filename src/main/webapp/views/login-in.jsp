@@ -26,9 +26,6 @@
 	</p>
 </form>
 
-
-
-
 <div class="chatbot">
     <button class="chatbot-button" onclick="toggleChat()">💬</button>
 

@@ -3,7 +3,7 @@
 
 
 <%
-if (session.getAttribute("user") == null) {
+if (session == null || session.getAttribute("user") == null) {
 	response.sendRedirect(request.getContextPath() + "/views/login-in.jsp");
 	return;
 }
@@ -26,7 +26,7 @@ window.addEventListener("pageshow", function(event) {
 <form class="login-form">
 	<p class="welcome-text">ようこそ、${user.lastName}さん</p>
 	<div class="menu">
-		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
+		<a href="${pageContext.request.contextPath}/views/update.jsp">更新</a>
 		<a href="${pageContext.request.contextPath}/views/delete.jsp">削除</a>
 		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
 	</div>
