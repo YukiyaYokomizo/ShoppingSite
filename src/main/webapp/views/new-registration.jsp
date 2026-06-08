@@ -5,7 +5,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
 
-<form id="registration-form" class="login-card"
+<form id="user-form" class="login-card"
 	action="${pageContext.request.contextPath}/InsertConfirm.action"
 	method="post">
 

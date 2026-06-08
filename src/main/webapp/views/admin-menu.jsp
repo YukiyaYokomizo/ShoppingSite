@@ -8,10 +8,6 @@ if (session.getAttribute("user") == null) {
 }
 %>
 
-<%@include file="../header.html"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/login.css">
-
 <script>
 window.addEventListener("pageshow", function(event) {
     const nav = performance.getEntriesByType("navigation")[0];
@@ -22,13 +18,23 @@ window.addEventListener("pageshow", function(event) {
 });
 </script>
 
-<form class="login-form">
-	<p class="welcome-text">ようこそ、管理者${user.lastName}さん</p>
-	<div class="menu">
-		<a href="${pageContext.request.contextPath}/views/update.jsp">変更</a>
-		<a href="${pageContext.request.contextPath}/Admin.action">管理</a>
-		<a href="${pageContext.request.contextPath}/views/logout-in.jsp">ログアウト</a>
-	</div>
-</form>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/header.css">
 
-<%@include file="../footer.html"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/login.css">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header class="header">
+		<%@include file="../HeaderFooter/header.jsp"%>
+	</header>
+
+
+
+</body>
+</html>

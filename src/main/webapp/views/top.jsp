@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../header.html"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/header.css">
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
-
-<form class="login-form">
-	<div class="menu">
-		<a href="${pageContext.request.contextPath}/views/login-in.jsp">ログイン</a>
-		|
-		<a href="${pageContext.request.contextPath}/views/new-registration.jsp">新規会員登録</a>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header class="header">
+		<%@include file="../HeaderFooter/header.jsp"%>
+	</header>
+	<main>
+	<div>
+	
 	</div>
-</form>
-
-<%@include file="../footer.html"%>
+	</main>
+</body>
+</html>

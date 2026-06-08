@@ -43,6 +43,6 @@ public class ForgetPassAction extends Action {
 		System.out.println(body);
 		System.out.println("============================");
 
-		return "redirect:/views/complete-forget-pass.jsp";
+		return "redirect:/complete-forget-pass.jsp";
 	}
 }

@@ -183,7 +183,44 @@
 }
 
 
+.users-card {
+	width: 850px;
+	max-width: 90%;
+	text-align: center;
+}
 
+.users-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 25px auto;
+	font-size: 14px;
+}
+
+.users-table th,
+.users-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.users-table th {
+	background-color: #f5f5f5;
+	font-weight: bold;
+}
+
+.users-table tr:hover {
+	background-color: #fafafa;
+}
+
+.users-card a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.users-card a:hover {
+	text-decoration: underline;
+}
 
 
 

@@ -1,0 +1,141 @@
+/* ===== header.jsp 専用CSS ===== */
+
+body {
+	margin: 0;
+	padding-top: 72px;
+	font-family: Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	background-color: #f5f5f5;
+}
+
+/* ヘッダーの背景バー */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 64px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	z-index: 900;
+}
+
+/* 左：ロゴ */
+.site-logo {
+	position: fixed;
+	top: 0;
+	left: 32px;
+	height: 64px;
+
+	display: flex;
+	align-items: center;
+
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+
+	z-index: 1000;
+}
+
+/* 中央：検索エリア */
+.site-search {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 64px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	z-index: 1000;
+}
+
+.site-search form {
+	margin: 0;
+}
+
+/* 検索欄と検索ボタンを横並び */
+.site-search form > div {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.site-search form > div > div {
+	margin: 0;
+}
+
+.site-search input[type="text"] {
+	width: 320px;
+	padding: 8px 10px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.site-search input[type="submit"] {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 6px;
+	background-color: #4a90e2;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.site-search input[type="submit"]:hover {
+	background-color: #357abd;
+}
+
+/* 右：メニュー */
+.site-menu {
+	position: fixed;
+	top: 0;
+	right: 32px;
+	height: 64px;
+
+	display: flex;
+	align-items: center;
+
+	z-index: 1000;
+}
+
+/* 未ログイン時の中身 */
+.site-menu > div {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* ログイン後の「ようこそ」 */
+.site-menu .welcome-text {
+	margin: 0 16px 0 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	white-space: nowrap;
+}
+
+/* ログイン後メニュー */
+.site-menu .menu {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0;
+}
+
+/* メニューリンク */
+.site-menu a {
+	color: #333;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.site-menu a:hover {
+	text-decoration: underline;
+}

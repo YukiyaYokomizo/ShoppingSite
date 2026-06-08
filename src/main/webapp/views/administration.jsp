@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../header.html"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
 
-<div class="login-card">
+<div class="login-card users-card">
 
 	<h2>会員一覧</h2>
 
@@ -34,9 +34,14 @@
 		</c:forEach>
 	</table>
 
-	<p>
-		<a href="${pageContext.request.contextPath}/views/admin-menu.jsp">メニューへ戻る</a>
-	</p>
+	<form action="" method="post">
+		<p>
+			<a href="${pageContext.request.contextPath}/views/admin-menu.jsp">メニューへ戻る</a>
+			<span>|</span>
+			<a href="${pageContext.request.contextPath}/views/new-registration.jsp">
+				管理者を追加 </a>
+		</p>
+	</form>
 
 </div>
 

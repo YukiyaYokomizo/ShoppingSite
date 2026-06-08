@@ -21,6 +21,8 @@ public class InsertAction extends Action {
 		String mailAddress = request.getParameter("mailaddress");
 
 		UsersDAO dao = new UsersDAO();
+		HttpSession session1=request.getSession(false);
+		
 		
 		try {
 			dao.insert(memberId, password, lastName, firstName, address, mailAddress);

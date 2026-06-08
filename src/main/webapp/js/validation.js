@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-	const form = document.getElementById("registration-form");
+	const form = document.getElementById("user-form");
 
 	if (form == null) {
 		return;
@@ -206,7 +206,7 @@ function clearErrors() {
 		error.textContent = "";
 	});
 
-	const inputs = document.querySelectorAll("#registration-form input");
+	const inputs = document.querySelectorAll("#user-form input");
 
 	inputs.forEach(function (input) {
 		input.classList.remove("input-error");
