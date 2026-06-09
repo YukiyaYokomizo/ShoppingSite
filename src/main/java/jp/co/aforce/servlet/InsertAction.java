@@ -20,9 +20,7 @@ public class InsertAction extends Action {
 		String address = request.getParameter("address");
 		String mailAddress = request.getParameter("mailaddress");
 
-		UsersDAO dao = new UsersDAO();
-		HttpSession session1=request.getSession(false);
-		
+		UsersDAO dao = new UsersDAO();	
 		
 		try {
 			dao.insert(memberId, password, lastName, firstName, address, mailAddress);

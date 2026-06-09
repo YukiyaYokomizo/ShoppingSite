@@ -139,3 +139,40 @@ body::before {
 .site-menu a:hover {
 	text-decoration: underline;
 }
+
+.site-logo a {
+	font-family: "Yomogi", "Klee One", cursive;
+	font-size: 34px;
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	color: #222;
+	text-decoration: none;
+}
+
+.product-category-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+
+	margin-bottom: 36px;
+	padding: 14px 24px;
+
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.product-category-nav a {
+	color: #333;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 8px 12px;
+	border-radius: 8px;
+}
+
+.product-category-nav a:hover {
+	background-color: #f0f0f0;
+}

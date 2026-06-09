@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
 <%-- サイトのロゴ --%>
 <div class="site-logo"><a href="${pageContext.request.contextPath}/views/top.jsp">ロゴ入れるよ</a></div>
 
