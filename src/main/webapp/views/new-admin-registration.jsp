@@ -10,7 +10,7 @@
 	method="post">
 
 	<h2>
-	会員登録
+	管理者登録
 </h2>
 
 	<p class="error-message">${errorMessage}</p>
