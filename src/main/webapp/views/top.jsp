@@ -16,19 +16,11 @@
 		<%@include file="../HeaderFooter/header.jsp"%>
 	</header>
 	<main>
-	<div>
-	でかでかとした画像を置きます。右から左へ流れます。
-	</div>
-	<%@include file="../HeaderFooter/category-nav.jsp"%>
-	<div>
-	記事を貼ります。
-	</div>
-	<div>
-	ランキングを貼ります。ページの右側に置きます。
-	</div>
-	<div>
-	お知らせの一覧を表示します。
-	</div>
+		<div>でかでかとした画像を置きます。右から左へ流れます。</div>
+		<%@include file="../HeaderFooter/category-nav.jsp"%>
+		<div>記事を貼ります。</div>
+		<div>ランキングを貼ります。ページの右側に置きます。</div>
+		<div>お知らせの一覧を表示します。</div>
 	</main>
 </body>
 </html>

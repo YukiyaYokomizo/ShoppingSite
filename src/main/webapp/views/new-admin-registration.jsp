@@ -6,7 +6,7 @@
 	href="${pageContext.request.contextPath}/css/login.css">
 
 <form id="user-form" class="login-card"
-	action="${pageContext.request.contextPath}/InsertConfirm.action"
+	action="${pageContext.request.contextPath}/InsertAdmin.action"
 	method="post">
 
 	<h2>
@@ -65,7 +65,7 @@
 		<span class="js-error" id="mailaddress-error"></span>
 	</p>
 
-	<input type="submit" value="確認へ">
+	<input type="submit" value="登録">
 
 </form>
 

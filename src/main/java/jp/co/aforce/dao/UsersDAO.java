@@ -56,6 +56,31 @@ public class UsersDAO extends DAO {
 		return line;
 	}
 	
+	// 管理者追加
+	public int insertAdmin(String memberId, String password, String lastName, String firstName, String address,
+			String mailAddress) throws Exception {
+
+		Connection con = getConnection();
+
+		PreparedStatement st;
+		st = con.prepareStatement("insert into users values (?, ?, ?, ?, ?, ?, ?)");
+		st.setString(1, memberId);
+		st.setString(2, password);
+		st.setString(3, lastName);
+		st.setString(4, firstName);
+		st.setString(5, address);
+		st.setString(6, mailAddress);
+		st.setInt(7, 1);
+
+		int line = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return line;
+	}
+	
+	
 	public int update(String memberId, String password, String lastName, String firstName, String address,
 			String mailAddress)throws Exception{
 		Connection con = getConnection();

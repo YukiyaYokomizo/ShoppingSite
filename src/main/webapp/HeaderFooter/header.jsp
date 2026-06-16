@@ -4,10 +4,25 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap"
+	rel="stylesheet">
 
 <%-- サイトのロゴ --%>
-<div class="site-logo"><a href="${pageContext.request.contextPath}/views/top.jsp">ロゴ入れるよ</a></div>
+<div class="site-logo">
+	<c:choose>
+		<c:when
+			test="${not empty sessionScope.user && sessionScope.user.admin == 1}">
+			<a href="${pageContext.request.contextPath}/views/admin-menu.jsp"> ロゴ入れるよ
+			</a>
+		</c:when>
+
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/views/top.jsp">
+				ロゴ入れるよ </a>
+		</c:otherwise>
+	</c:choose>
+</div>
 
 <%-- 検索 (formのactionは一旦空欄) --%>
 <div class="site-search">
@@ -30,8 +45,10 @@
 
 		<%-- 未ログイン --%>
 		<c:when test="${empty sessionScope.user}">
-			<div >
-				<a href="${pageContext.request.contextPath}/views/login-in.jsp">
+			<div>
+				<a href="${pageContext.request.contextPath}/views/cart.jsp"> カート
+				</a><span>|</span> <a
+					href="${pageContext.request.contextPath}/views/login-in.jsp">
 					ログイン </a> <span>|</span> <a
 					href="${pageContext.request.contextPath}/views/new-registration.jsp">
 					新規会員登録 </a>
@@ -54,7 +71,9 @@
 		<%-- 一般ユーザー --%>
 		<c:otherwise>
 			<p class="welcome-text">ようこそ、${sessionScope.user.lastName}さん</p>
-
+			<a href="${pageContext.request.contextPath}/views/cart.jsp"> カート
+			</a>
+			<span>|</span>
 			<div class="menu">
 				<a href="${pageContext.request.contextPath}/views/update.jsp">
 					更新 </a> <a href="${pageContext.request.contextPath}/views/delete.jsp">
