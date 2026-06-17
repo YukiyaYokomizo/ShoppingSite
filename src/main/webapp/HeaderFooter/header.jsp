@@ -61,8 +61,8 @@
 
 			<div class="menu">
 				<a href="${pageContext.request.contextPath}/views/update.jsp">
-					変更 </a> <a href="${pageContext.request.contextPath}/Admin.action">
-					管理 </a> <a
+					変更 </a> <span>|</span> <a href="${pageContext.request.contextPath}/Admin.action">
+					管理 </a> <span>|</span> <a
 					href="${pageContext.request.contextPath}/views/logout-in.jsp">
 					ログアウト </a>
 			</div>
@@ -71,13 +71,13 @@
 		<%-- 一般ユーザー --%>
 		<c:otherwise>
 			<p class="welcome-text">ようこそ、${sessionScope.user.lastName}さん</p>
+			<div class="menu">
 			<a href="${pageContext.request.contextPath}/views/cart.jsp"> カート
 			</a>
 			<span>|</span>
-			<div class="menu">
 				<a href="${pageContext.request.contextPath}/views/update.jsp">
-					更新 </a> <a href="${pageContext.request.contextPath}/views/delete.jsp">
-					削除 </a> <a
+					更新 </a> <span>|</span> <a href="${pageContext.request.contextPath}/views/delete.jsp">
+					削除 </a> <span>|</span> <a
 					href="${pageContext.request.contextPath}/views/logout-in.jsp">
 					ログアウト </a>
 			</div>

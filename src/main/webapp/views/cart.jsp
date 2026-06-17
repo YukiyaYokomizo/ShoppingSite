@@ -12,7 +12,6 @@
 <div class="cart-page">
 
 	<h2 class="cart-title">カート</h2>
-	<p>ログイン確認：${sessionScope.user.memberId}</p>
 	<c:choose>
 
 		<c:when test="${empty sessionScope.cartList}">
@@ -20,8 +19,7 @@
 				<p>カートに商品はありません。</p>
 
 				<a href="${pageContext.request.contextPath}/ProductList.action">
-					商品一覧へ戻る
-				</a>
+					商品一覧へ戻る </a>
 			</div>
 		</c:when>
 
@@ -59,20 +57,18 @@
 				<div class="cart-button-area">
 
 					<a href="${pageContext.request.contextPath}/ProductList.action">
-						商品一覧へ戻る
-					</a>
+						商品一覧へ戻る </a>
 
 					<c:choose>
 						<c:when test="${empty sessionScope.user}">
 							<a href="${pageContext.request.contextPath}/views/login-in.jsp">
-								ログインして購入手続きへ
-							</a>
+								ログインして購入手続きへ </a>
 						</c:when>
 
 						<c:otherwise>
-							<a href="${pageContext.request.contextPath}/PurchaseConfirm.action">
-								購入手続きへ
-							</a>
+							<a
+								href="${pageContext.request.contextPath}/PurchaseConfirm.action">
+								購入手続きへ </a>
 						</c:otherwise>
 					</c:choose>
 

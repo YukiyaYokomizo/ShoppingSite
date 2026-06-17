@@ -94,5 +94,51 @@ public class ProductsDAO extends DAO {
 		return product;
 	}
 	
+	public List<Products> search(String category, String sort) throws Exception {
+
+		List<Products> list = new ArrayList<>();
+
+		String sql = "select * from products where DELETE_FLAG = false";
+
+		if (category != null && !category.isBlank()) {
+			sql += " and CATEGORY = ?";
+		}
+
+		if ("price_asc".equals(sort)) {
+			sql += " order by PRICE asc";
+		} else if ("price_desc".equals(sort)) {
+			sql += " order by PRICE desc";
+		} else {
+			sql += " order by PRODUCT_ID desc";
+		}
+
+		try (Connection con = getConnection();
+				PreparedStatement st = con.prepareStatement(sql)) {
+
+			if (category != null && !category.isBlank()) {
+				st.setString(1, category);
+			}
+
+			try (ResultSet rs = st.executeQuery()) {
+				while (rs.next()) {
+					Products product = new Products();
+
+					product.setProductId(rs.getInt("PRODUCT_ID"));
+					product.setProductName(rs.getString("PRODUCT_NAME"));
+					product.setCategory(rs.getString("CATEGORY"));
+					product.setPrice(rs.getInt("PRICE"));
+					product.setStock(rs.getInt("STOCK"));
+					product.setDescription(rs.getString("DESCRIPTION"));
+					product.setImagePath(rs.getString("IMAGE_PATH"));
+					product.setSalesCount(rs.getInt("SALES_COUNT"));
+					product.setDeleteFlag(rs.getBoolean("DELETE_FLAG"));
+
+					list.add(product);
+				}
+			}
+		}
+
+		return list;
+	}
 
 }

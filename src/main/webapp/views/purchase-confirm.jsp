@@ -54,7 +54,7 @@
 				カートへ戻る
 			</a>
 
-			<form action="${pageContext.request.contextPath}/ConfirmPurchase.action"
+			<form action="${pageContext.request.contextPath}/Purchase.action"
 				method="post">
 				<input type="submit" value="購入を確定する">
 			</form>
