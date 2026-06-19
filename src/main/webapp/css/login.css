@@ -1,4 +1,26 @@
 /* ログイン前の中央カード */
+html,
+body {
+	cursor: url("../image/cursor/pencil_cursor_custom_32.png") 3 28, auto;
+}
+
+a,
+button,
+input[type="submit"],
+input[type="button"],
+select {
+	cursor: url("../image/cursor/pencil_cursor_custom_32.png") 3 28, pointer;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+	cursor: text;
+}
+
+
 .login-card {
   width: 400px;
   margin: 60px auto;

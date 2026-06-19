@@ -13,7 +13,7 @@
 	<c:choose>
 		<c:when
 			test="${not empty sessionScope.user && sessionScope.user.admin == 1}">
-			<a href="${pageContext.request.contextPath}/views/admin-menu.jsp"> ロゴ入れるよ
+			<a href="${pageContext.request.contextPath}/ProductManage.action"> ロゴ入れるよ
 			</a>
 		</c:when>
 
@@ -24,21 +24,40 @@
 	</c:choose>
 </div>
 
-<%-- 検索 (formのactionは一旦空欄) --%>
+<%-- 検索 --%>
 <div class="site-search">
-	<form action="" method="post">
-		<div>
-			<div>
-				<input type="text" name="name">
-			</div>
 
-			<div>
+	<c:choose>
+
+		<%-- 管理者は商品管理画面で検索 --%>
+		<c:when test="${not empty sessionScope.user && sessionScope.user.admin == 1}">
+			<form action="${pageContext.request.contextPath}/ProductManage.action"
+				method="get">
+
+				<input type="text" name="name" value="${param.name}"
+					placeholder="商品を検索">
+
+				<input type="hidden" name="displayStatus" value="all">
+
 				<input type="submit" value="検索">
-			</div>
-		</div>
-	</form>
-</div>
+			</form>
+		</c:when>
 
+		<%-- 一般ユーザー・未ログインはユーザー用検索 --%>
+		<c:otherwise>
+			<form action="${pageContext.request.contextPath}/ProductSearch.action"
+				method="get">
+
+				<input type="text" name="name" value="${param.name}"
+					placeholder="商品を検索">
+
+				<input type="submit" value="検索">
+			</form>
+		</c:otherwise>
+
+	</c:choose>
+
+</div>
 <%-- 右上のメニュー(分岐あり) --%>
 <div class="site-menu">
 	<c:choose>

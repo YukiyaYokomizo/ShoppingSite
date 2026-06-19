@@ -26,7 +26,13 @@ public class FrontController extends HttpServlet {
 
 			if (url.startsWith("redirect:")) {
 				String redirectUrl = url.substring("redirect:".length());
-				response.sendRedirect(request.getContextPath() + "/views/" + redirectUrl);
+
+				if (redirectUrl.startsWith("/")) {
+					response.sendRedirect(request.getContextPath() + redirectUrl);
+				} else {
+					response.sendRedirect(request.getContextPath() + "/views/" + redirectUrl);
+				}
+
 			} else {
 				request.getRequestDispatcher("/views/" + url).forward(request, response);
 			}

@@ -27,7 +27,7 @@ public class LoginAction extends Action {
 			return "redirect:top.jsp";
 		}else if(user != null && user.getAdmin()!=0) {
 			session.setAttribute("user", user);
-			return "redirect:admin-menu.jsp";
+			return "redirect:/ProductManage.action";
 		}
 		return "login-error.jsp";
 	}
