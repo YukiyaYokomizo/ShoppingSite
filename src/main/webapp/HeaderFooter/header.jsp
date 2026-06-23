@@ -18,7 +18,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/views/top.jsp">
+			<a href="${pageContext.request.contextPath}/Top.action">
 				ロゴ入れるよ </a>
 		</c:otherwise>
 	</c:choose>

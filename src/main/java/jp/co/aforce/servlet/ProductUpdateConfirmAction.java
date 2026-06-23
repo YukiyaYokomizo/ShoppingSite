@@ -24,7 +24,7 @@ public class ProductUpdateConfirmAction extends Action {
 		Users user = (Users) session.getAttribute("user");
 
 		if (user.getAdmin() != 1) {
-			return "redirect:top.jsp";
+			return "redirect:/Top.action";
 		}
 
 		String productIdText = request.getParameter("productId");

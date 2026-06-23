@@ -1,0 +1,174 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+/* カートページ全体 */
+.cart-page {
+	width: 1000px;
+	max-width: 92%;
+	margin: 56px auto 80px;
+}
+
+/* タイトル */
+.cart-title {
+	font-family: "Yomogi", "Klee One", cursive;
+	font-size: 44px;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-align: center;
+	margin-bottom: 36px;
+	color: #333;
+}
+
+/* 空のカート */
+.cart-empty {
+	width: 640px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 52px 36px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 20px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	text-align: center;
+}
+
+.cart-empty::before {
+	content: "🛒";
+	display: block;
+	font-size: 54px;
+	margin-bottom: 18px;
+}
+
+.cart-empty p {
+	margin: 0 0 28px;
+	font-size: 18px;
+	color: #444;
+}
+
+.cart-empty a {
+	display: inline-block;
+	padding: 10px 24px;
+	border-radius: 999px;
+	background-color: #4a90e2;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	transition: 0.2s;
+}
+
+.cart-empty a:hover {
+	background-color: #357abd;
+	opacity: 1;
+}
+
+/* カートの外枠 */
+.cart-card {
+	padding: 32px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 20px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* カートテーブル */
+.cart-table {
+	width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	border-radius: 14px;
+}
+
+.cart-table th,
+.cart-table td {
+	padding: 16px 18px;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	font-size: 15px;
+}
+
+.cart-table th {
+	background-color: #f7f7f7;
+	color: #333;
+	font-weight: bold;
+}
+
+.cart-table td {
+	color: #444;
+}
+
+/* 商品名だけ左寄せ */
+.cart-table td:first-child {
+	text-align: left;
+	font-weight: bold;
+	color: #222;
+}
+
+/* 最終行 */
+.cart-total-row th,
+.cart-total-row td {
+	background-color: #fafafa;
+	border-bottom: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #222;
+}
+
+.cart-total-row td {
+	color: #111;
+}
+
+/* ボタンエリア */
+.cart-button-area {
+	display: flex;
+	justify-content: center;
+	gap: 18px;
+	margin-top: 32px;
+}
+
+/* ボタン共通 */
+.cart-button-area a {
+	display: inline-block;
+	padding: 11px 26px;
+	border-radius: 999px;
+	background-color: #4a90e2;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	transition: 0.2s;
+}
+
+.cart-button-area a:hover {
+	background-color: #357abd;
+	opacity: 1;
+}
+
+/* 1つ目の「商品一覧へ戻る」だけサブボタン風 */
+.cart-button-area a:first-child {
+	background-color: #777;
+}
+
+.cart-button-area a:first-child:hover {
+	background-color: #555;
+}
+
+/* スマホ・狭い画面 */
+@media screen and (max-width: 700px) {
+	.cart-card {
+		padding: 20px;
+		overflow-x: auto;
+	}
+
+	.cart-table {
+		min-width: 620px;
+	}
+
+	.cart-button-area {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.cart-button-area a {
+		width: 260px;
+	}
+}

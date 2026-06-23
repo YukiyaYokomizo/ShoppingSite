@@ -25,7 +25,7 @@ public class InsertAdminAction extends Action {
 		Users loginUser = (Users) session.getAttribute("user");
 
 		if (loginUser.getAdmin() != 1) {
-			return "redirect:top.jsp";
+			return "redirect:/Top.action";
 		}
 
 		String memberId = request.getParameter("id");

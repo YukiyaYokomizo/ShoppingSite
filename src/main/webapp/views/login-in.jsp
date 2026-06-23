@@ -2,7 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@include file="../header.html"%>
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/header.css">
+
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/top.css">
+
+
+<header class="header">
+	<%@include file="../HeaderFooter/header2.jsp"%>
+</header>
 
 <form class="login-card"
 	action="${pageContext.request.contextPath}/Login.action" method="post">
@@ -27,27 +37,25 @@
 </form>
 
 <div class="chatbot">
-    <button class="chatbot-button" onclick="toggleChat()">💬</button>
+	<button class="chatbot-button" onclick="toggleChat()">💬</button>
 
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header">
-            チャットサポート
-        </div>
+	<div class="chatbot-window" id="chatbotWindow">
+		<div class="chatbot-header">チャットサポート</div>
 
-        <div class="chatbot-body">
-            <p>こんにちは！ご用件をお選びください！</p>
-            <button>ログインについて</button>
-            <button>会員登録について</button>
-            <button>退会について</button>
-        </div>
-    </div>
+		<div class="chatbot-body">
+			<p>こんにちは！ご用件をお選びください！</p>
+			<button>ログインについて</button>
+			<button>会員登録について</button>
+			<button>退会について</button>
+		</div>
+	</div>
 </div>
 
 <script>
-function toggleChat() {
-    const window = document.getElementById("chatbotWindow");
-    window.classList.toggle("show");
-}
+	function toggleChat() {
+		const window = document.getElementById("chatbotWindow");
+		window.classList.toggle("show");
+	}
 </script>
 
 <%@include file="../footer.html"%>

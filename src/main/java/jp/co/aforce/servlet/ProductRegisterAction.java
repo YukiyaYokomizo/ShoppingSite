@@ -20,7 +20,7 @@ public class ProductRegisterAction extends Action {
 		Users user = (Users) session.getAttribute("user");
 
 		if (user.getAdmin() != 1) {
-			return "redirect:top.jsp";
+			return "redirect:/Top.action";
 		}
 
 		return "product-register.jsp";

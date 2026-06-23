@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
-<!-- 上記はEclipseの警告を消すための記述です。 -->
-<!-- 元のやつはサクラエディタ(pass管理)にある -->
 <!--<Context>-->
 <!--  <Resource name="jdbc/shoppingsite_yokomizo" auth="Container" type="javax.sql.DataSource"-->
 <!--    driverClassName="com.mysql.cj.jdbc.Driver"-->

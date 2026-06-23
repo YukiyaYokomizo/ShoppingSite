@@ -8,7 +8,8 @@
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/cart.css">
 <div class="cart-page">
 
 	<h2 class="cart-title">カート</h2>

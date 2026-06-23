@@ -42,7 +42,7 @@ textarea {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
-	justify-content: center;
+	justify-content: flex-start;
 	margin-top: 24px;
 }
 
@@ -236,25 +236,37 @@ textarea {
 	font-weight: bold;
 }
 
-.admin-product-button-area {
-	margin-top: 18px;
+.admin-product-card {
 	display: flex;
-	gap: 10px;
+	flex-direction: column;
+}
+
+.admin-product-button-area {
+	margin-top: auto;
+	padding-top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .admin-product-button-area a {
-	padding: 6px 14px;
-	border-radius: 6px;
-	background-color: #333;
+	display: block;
+	width: 85%;
+	text-align: center;
+	padding: 12px 0;
+	border-radius: 10px;
+	background-color: #2e9b57;
 	color: #fff;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 16px;
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s;
 }
 
 .admin-product-button-area a:hover {
-	background-color: #555;
+	background-color: #257d46;
 }
-
 .register-message {
 	position: fixed;
 	top: 50%;
@@ -400,4 +412,589 @@ textarea {
 	color: #aaa;
 	font-size: 14px;
 	background-color: #f5f5f5;
+}
+
+/* 商品一覧カードの高さをそろえる */
+.product-list .product-card {
+	width: 220px;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+/* 商品名は2行分の高さを確保 */
+.product-list .product-name {
+	min-height: 52px;
+	margin-bottom: 10px;
+
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 1.5;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.product-list .product-price {
+	margin-top: 4px;
+	margin-bottom: 8px;
+}
+
+.product-list .product-stock {
+	margin-top: auto;
+}
+
+/* 商品一覧をカテゴリバーと同じ幅でそろえる */
+.product-list {
+	width: min(1100px, 92%);
+	margin: 24px auto 0;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+
+/* カードリンクがある場合 */
+.product-card-link {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* 商品カードをグリッド幅いっぱいにする */
+.product-list .product-card {
+	width: 100%;
+	min-height: 180px;
+	box-sizing: border-box;
+}
+
+.admin-manage-layout {
+	width: min(1500px, 94%);
+	margin: 0 auto 80px;
+
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 360px;
+	gap: 32px;
+	align-items: start;
+}
+
+.admin-product-area {
+	min-width: 0;
+}
+
+.admin-article-area {
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 18px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	padding: 22px;
+}
+
+.admin-side-title {
+	margin: 0 0 18px;
+	text-align: center;
+	font-size: 24px;
+	letter-spacing: 0.08em;
+	color: #222;
+}
+
+.admin-article-add-card {
+	height: 130px;
+	margin-bottom: 18px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	border: 2px dashed #aaa;
+	border-radius: 14px;
+	background-color: #fafafa;
+
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	transition: 0.2s;
+}
+
+.admin-article-add-card:hover {
+	background-color: #f0f8f3;
+	border-color: #2e9b57;
+	color: #2e9b57;
+	opacity: 1;
+}
+
+.admin-article-plus {
+	font-size: 34px;
+	line-height: 1;
+}
+
+.admin-article-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.admin-article-card {
+	padding: 16px;
+	border: 1px solid #e5e5e5;
+	border-radius: 14px;
+	background-color: #fff;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.admin-article-category {
+	display: inline-block;
+	margin: 0 0 8px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background-color: #f0f0f0;
+	color: #555;
+	font-size: 12px;
+}
+
+.admin-article-title {
+	margin: 0 0 10px;
+	font-size: 17px;
+	line-height: 1.5;
+	color: #222;
+}
+
+.admin-article-summary {
+	margin: 0 0 12px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #555;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.admin-article-status {
+	margin: 0 0 14px;
+	font-size: 13px;
+	color: #555;
+}
+
+.admin-article-edit-button {
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	border-radius: 10px;
+	background-color: #2e9b57;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+
+.admin-article-edit-button:hover {
+	background-color: #257d46;
+	opacity: 1;
+}
+
+/* 管理画面全体を広くする */
+.product-page {
+	width: min(1500px, 96%);
+	margin: 0 auto 80px;
+}
+
+/* 商品管理 + 記事管理 の2カラム */
+.admin-manage-layout {
+	width: 100%;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 380px;
+	gap: 36px;
+	align-items: start;
+}
+
+/* 左側の商品エリア */
+.admin-product-area {
+	min-width: 0;
+}
+
+/* 管理画面の商品一覧は3列にする */
+.admin-product-list {
+	width: 100%;
+	margin-top: 24px;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(220px, 1fr));
+	gap: 24px;
+	justify-content: start;
+}
+
+/* 管理画面の商品カード */
+.admin-product-list .product-card,
+.admin-product-list .product-add-card {
+	width: 100%;
+	min-height: 320px;
+	box-sizing: border-box;
+}
+
+/* 商品追加カード */
+.admin-product-list .product-add-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 管理画面全体 */
+.product-page {
+	width: min(1700px, 96%);
+	margin: 0 auto 80px;
+}
+
+/* =========================
+   管理画面：商品管理 + 記事管理
+========================= */
+
+.product-page {
+	width: min(1700px, 96%);
+	margin: 0 auto 80px;
+}
+
+/* 左右2カラム */
+.admin-manage-layout {
+	width: 100%;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 430px;
+	gap: 42px;
+	align-items: start;
+}
+
+/* 左：商品管理 */
+.admin-product-area {
+	min-width: 0;
+}
+
+/* 商品管理タイトル */
+.admin-product-title {
+	font-family: "Yomogi", "Klee One", cursive;
+	text-align: center;
+	font-size: 44px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	margin: 42px 0 36px;
+	color: #333;
+}
+
+/* 商品側フィルター */
+.admin-filter-form {
+	margin-bottom: 24px;
+}
+
+/* 商品一覧は3列 */
+.admin-product-list {
+	width: 100%;
+	margin-top: 24px;
+
+	display: grid;
+	grid-template-columns: repeat(3, minmax(260px, 1fr));
+	gap: 24px;
+}
+
+/* 商品カード */
+.admin-product-list .product-card,
+.admin-product-list .product-add-card {
+	width: 100%;
+	min-height: 320px;
+	box-sizing: border-box;
+}
+
+/* 商品追加カード */
+.admin-product-list .product-add-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 商品編集ボタン */
+.admin-product-button-area {
+	margin-top: auto;
+	padding-top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.admin-product-button-area a {
+	display: block;
+	width: 85%;
+	text-align: center;
+	padding: 12px 0;
+	border-radius: 10px;
+	background-color: #2e9b57;
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+
+.admin-product-button-area a:hover {
+	background-color: #257d46;
+}
+
+/* 右：記事管理 */
+.admin-article-area {
+	min-width: 0;
+
+	/* 白い大きな外枠を消す */
+	background: none;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+
+	/* 商品管理との区切り線 */
+	border-left: 1px solid #d7d7d7;
+	padding-left: 34px;
+	box-sizing: border-box;
+}
+
+/* 記事管理タイトル */
+.admin-article-title-main {
+	font-family: "Yomogi", "Klee One", cursive;
+	text-align: center;
+	font-size: 44px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	margin: 42px 0 36px;
+	color: #333;
+}
+
+/* 記事側フィルター */
+.admin-article-filter-form {
+	margin: 0 0 24px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	font-size: 16px;
+}
+
+.admin-article-filter-form select {
+	padding: 4px 8px;
+	font-size: 15px;
+}
+
+/* 記事一覧 */
+.admin-article-list {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+/* 記事追加カード */
+.admin-article-add-card {
+	height: 150px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	border: 2px dashed #aaa;
+	border-radius: 14px;
+	background-color: #fafafa;
+
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+
+.admin-article-add-card:hover {
+	background-color: #f0f8f3;
+	border-color: #2e9b57;
+	color: #2e9b57;
+	opacity: 1;
+}
+
+.admin-article-plus {
+	font-size: 38px;
+	line-height: 1;
+}
+
+/* 記事がないとき */
+.admin-article-empty {
+	margin: 0;
+	color: #555;
+	font-size: 15px;
+}
+
+/* 記事カード */
+.admin-article-card {
+	padding: 18px;
+	border: 1px solid #e5e5e5;
+	border-radius: 14px;
+	background-color: #fff;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+	box-sizing: border-box;
+}
+
+.admin-article-category {
+	display: inline-block;
+	margin: 0 0 10px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background-color: #f0f0f0;
+	color: #555;
+	font-size: 12px;
+}
+
+.admin-article-title {
+	margin: 0 0 10px;
+	font-size: 18px;
+	line-height: 1.5;
+	color: #222;
+}
+
+.admin-article-summary {
+	margin: 0 0 14px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #555;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.admin-article-status {
+	margin: 0 0 14px;
+	font-size: 13px;
+	color: #555;
+}
+
+.admin-article-edit-button {
+	display: block;
+	width: 100%;
+	padding: 11px 0;
+	border-radius: 10px;
+	background-color: #2e9b57;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+
+.admin-article-edit-button:hover {
+	background-color: #257d46;
+	opacity: 1;
+}
+
+/* 狭い画面では縦並び */
+@media screen and (max-width: 1200px) {
+	.admin-manage-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.admin-article-area {
+		border-left: none;
+		border-top: 1px solid #d7d7d7;
+		padding-left: 0;
+		padding-top: 34px;
+	}
+}
+
+.admin-product-title,
+.admin-article-title-main {
+	font-family: "Yomogi", "Klee One", cursive;
+	text-align: center;
+	font-size: 44px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	margin: 42px 0 36px;
+	color: #333;
+}
+
+.admin-filter-form,
+.admin-article-filter-form {
+	min-height: 32px;
+	margin: 0 0 24px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+/* =========================
+   管理画面：左右の高さを強制的にそろえる
+========================= */
+
+.admin-product-area,
+.admin-article-area {
+	display: grid;
+	grid-template-rows: 110px 44px auto;
+	align-items: start;
+}
+
+/* 商品管理・記事管理のタイトルを同じ高さに固定 */
+.product-page h2.admin-product-title,
+.product-page h2.admin-article-title-main {
+	height: 110px;
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-family: "Yomogi", "Klee One", cursive;
+	font-size: 44px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	color: #333;
+	text-align: center;
+}
+
+/* 商品側フォーム・記事側フォームを同じ高さに固定 */
+.admin-filter-form,
+.admin-article-filter-form {
+	height: 44px;
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+/* カード一覧の開始位置をそろえる */
+.admin-product-list,
+.admin-article-list {
+	margin-top: 24px;
+}
+
+/* 記事エリアの白い外枠を消して、線だけ残す */
+.admin-article-area {
+	background: none;
+	border-top: none;
+	border-right: none;
+	border-bottom: none;
+	border-left: 1px solid #d7d7d7;
+	border-radius: 0;
+	box-shadow: none;
+
+	padding-left: 34px;
+	box-sizing: border-box;
 }

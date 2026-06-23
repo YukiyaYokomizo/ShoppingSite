@@ -4,5 +4,5 @@
 <%@include file="../header.html"%>
 
 <p>削除しました。</p>
-<p><a href="${pageContext.request.contextPath}/views/top.jsp">トップページへ</a></p>
+<p><a href="${pageContext.request.contextPath}/Top.action">トップページへ</a></p>
 <%@include file="../footer.html"%>
