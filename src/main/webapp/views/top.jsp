@@ -82,33 +82,40 @@ if (request.getAttribute("articlesList") == null) {
 
 			<div class="top-article-list">
 				<c:forEach var="article" items="${articlesList}">
-					<div class="top-article-card">
-						<div class="top-article-image-area">
-							<c:choose>
-								<c:when test="${not empty article.imagePath}">
-									<img class="top-article-image"
-										src="${pageContext.request.contextPath}/${article.imagePath}"
-										alt="${article.title}">
-								</c:when>
 
-								<c:otherwise>
-									<div class="top-article-no-image">画像なし</div>
-								</c:otherwise>
-							</c:choose>
+					<a class="top-article-card-link"
+						href="${pageContext.request.contextPath}/ArticleDetail.action?articleId=${article.articleId}">
+
+						<div class="top-article-card">
+
+							<div class="top-article-image-area">
+								<c:choose>
+									<c:when test="${not empty article.imagePath}">
+										<img class="top-article-image"
+											src="${pageContext.request.contextPath}/${article.imagePath}"
+											alt="${article.title}">
+									</c:when>
+
+									<c:otherwise>
+										<div class="top-article-no-image">画像なし</div>
+									</c:otherwise>
+								</c:choose>
+							</div>
+
+							<div class="top-article-body">
+								<p class="top-article-category">${article.category}</p>
+
+								<h3 class="top-article-title">${article.title}</h3>
+
+								<p class="top-article-summary">${article.summary}</p>
+							</div>
+
 						</div>
 
-						<div class="top-article-body">
-							<p class="top-article-category">${article.category}</p>
-
-							<h3 class="top-article-title">${article.title}</h3>
-					
-					<p class="top-article-summary">${article.summary}</p>
-					
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-</section>
+					</a>
+				</c:forEach>
+			</div>
+		</section>
 
 		<div>ランキングを貼ります。ページの右側に置きます。</div>
 

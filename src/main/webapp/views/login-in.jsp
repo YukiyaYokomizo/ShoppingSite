@@ -36,26 +36,5 @@
 	</p>
 </form>
 
-<div class="chatbot">
-	<button class="chatbot-button" onclick="toggleChat()">💬</button>
-
-	<div class="chatbot-window" id="chatbotWindow">
-		<div class="chatbot-header">チャットサポート</div>
-
-		<div class="chatbot-body">
-			<p>こんにちは！ご用件をお選びください！</p>
-			<button>ログインについて</button>
-			<button>会員登録について</button>
-			<button>退会について</button>
-		</div>
-	</div>
-</div>
-
-<script>
-	function toggleChat() {
-		const window = document.getElementById("chatbotWindow");
-		window.classList.toggle("show");
-	}
-</script>
 
 <%@include file="../footer.html"%>

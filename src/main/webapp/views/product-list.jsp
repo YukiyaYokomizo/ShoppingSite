@@ -7,7 +7,7 @@
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
-
+<title>商品一覧</title>
 <div class="product-page">
 
 	<%@include file="../HeaderFooter/category-nav.jsp"%>

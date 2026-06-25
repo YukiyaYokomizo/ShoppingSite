@@ -36,9 +36,9 @@
 
 	<form action="" method="post">
 		<p>
-			<a href="${pageContext.request.contextPath}/views/admin-menu.jsp">メニューへ戻る</a>
-			<span>|</span>
-			<a href="${pageContext.request.contextPath}/views/new-admin-registration.jsp">
+			<a href="${pageContext.request.contextPath}/ProductManage.action">
+				メニューへ戻る </a> <span>|</span> <a
+				href="${pageContext.request.contextPath}/views/new-admin-registration.jsp">
 				管理者を追加 </a>
 		</p>
 	</form>

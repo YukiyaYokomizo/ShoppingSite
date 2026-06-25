@@ -32,38 +32,30 @@ public class ProductManageAction extends Action {
 		String category = request.getParameter("category");
 		String sort = request.getParameter("sort");
 		String name = request.getParameter("name");
+		String displayStatus = request.getParameter("displayStatus");
 		String articleDisplayStatus = request.getParameter("articleDisplayStatus");
 
-		ProductsDAO dao = new ProductsDAO();
-		String displayStatus = request.getParameter("displayStatus");
-		
-		ArticlesDAO articlesDao = new ArticlesDAO();
-		List<Article> adminArticlesList = articlesDao.searchForAdmin();
-		request.setAttribute("adminArticlesList", adminArticlesList);
-		
-		
-		
 		if (displayStatus == null || displayStatus.isBlank()) {
 			displayStatus = "visible";
 		}
-		
+
 		if (articleDisplayStatus == null || articleDisplayStatus.isBlank()) {
 			articleDisplayStatus = "visible";
 		}
-		
-		List<Products> productsList = dao.searchForAdmin(category, sort, displayStatus, name);
-		
+
+		ProductsDAO productsDao = new ProductsDAO();
+		List<Products> productsList = productsDao.searchForAdmin(category, sort, displayStatus, name);
+
 		ArticlesDAO articlesDao = new ArticlesDAO();
 		List<Article> adminArticlesList = articlesDao.searchForAdmin(articleDisplayStatus);
-		
-		
-		request.setAttribute("adminArticlesList", adminArticlesList);
-		request.setAttribute("articleDisplayStatus", articleDisplayStatus);
-		request.setAttribute("displayStatus", displayStatus);
-		request.setAttribute("name", name);
+
 		request.setAttribute("productsList", productsList);
+		request.setAttribute("adminArticlesList", adminArticlesList);
 		request.setAttribute("category", category);
 		request.setAttribute("sort", sort);
+		request.setAttribute("name", name);
+		request.setAttribute("displayStatus", displayStatus);
+		request.setAttribute("articleDisplayStatus", articleDisplayStatus);
 
 		return "admin-menu.jsp";
 	}

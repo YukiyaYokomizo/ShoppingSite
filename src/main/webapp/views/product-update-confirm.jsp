@@ -2,6 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
+<%
+if (session.getAttribute("user") == null) {
+	response.sendRedirect(request.getContextPath() + "/views/login-in.jsp");
+	return;
+}
+
+if (request.getAttribute("product") == null) {
+	response.sendRedirect(request.getContextPath() + "/ProductManage.action");
+	return;
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,21 +63,11 @@
 				<p>
 					カテゴリ：
 					<c:choose>
-						<c:when test="${product.category == 'sharp_pen'}">
-							シャーペン
-						</c:when>
-						<c:when test="${product.category == 'ballpen'}">
-							ボールペン
-						</c:when>
-						<c:when test="${product.category == 'multi_ballpen'}">
-							多機能ペン
-						</c:when>
-						<c:when test="${product.category == 'other'}">
-							その他
-						</c:when>
-						<c:otherwise>
-							${product.category}
-						</c:otherwise>
+						<c:when test="${product.category == 'sharp_pen'}">シャーペン</c:when>
+						<c:when test="${product.category == 'ballpen'}">ボールペン</c:when>
+						<c:when test="${product.category == 'multi_ballpen'}">多機能ペン</c:when>
+						<c:when test="${product.category == 'other'}">その他</c:when>
+						<c:otherwise>${product.category}</c:otherwise>
 					</c:choose>
 				</p>
 
@@ -77,11 +79,11 @@
 					表示状態：
 					<c:choose>
 						<c:when test="${product.deleteFlag}">
-			非表示
-		</c:when>
+							非表示
+						</c:when>
 						<c:otherwise>
-			表示中
-		</c:otherwise>
+							表示中
+						</c:otherwise>
 					</c:choose>
 				</p>
 
@@ -96,13 +98,16 @@
 						method="post">
 
 						<input type="hidden" name="productId" value="${product.productId}">
+
 						<input type="hidden" name="productName"
 							value="${product.productName}"> <input type="hidden"
 							name="category" value="${product.category}"> <input
 							type="hidden" name="price" value="${product.price}"> <input
 							type="hidden" name="stock" value="${product.stock}"> <input
 							type="hidden" name="description" value="${product.description}">
+
 						<input type="hidden" name="imagePath" value="${product.imagePath}">
+
 						<input type="hidden" name="deleteFlag"
 							value="${product.deleteFlag}"> <input type="submit"
 							value="更新する">

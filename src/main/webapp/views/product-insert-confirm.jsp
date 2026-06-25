@@ -2,88 +2,100 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
-<%@include file="../HeaderFooter/header.jsp"%>
+<%
+if (session.getAttribute("user") == null) {
+	response.sendRedirect(request.getContextPath() + "/views/login-in.jsp");
+	return;
+}
+
+if (request.getAttribute("product") == null) {
+	response.sendRedirect(request.getContextPath() + "/ProductRegister.action");
+	return;
+}
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品登録確認</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
+</head>
 
-<div class="product-detail-page">
+<body>
 
-	<h2>商品登録確認</h2>
+	<header class="header">
+		<%@include file="../HeaderFooter/header.jsp"%>
+	</header>
 
-	<p class="confirm-message">この内容で商品を登録しますか？</p>
+	<div class="product-detail-page">
 
-	<div class="product-detail-card">
+		<h2>商品登録確認</h2>
 
-		<div class="product-detail-image-area">
-			<c:choose>
-				<c:when test="${not empty product.imagePath}">
-					<img class="product-detail-image"
-						src="${pageContext.request.contextPath}/${product.imagePath}"
-						alt="${product.productName}">
-				</c:when>
+		<p class="confirm-message">この内容で商品を登録しますか？</p>
 
-				<c:otherwise>
-					<div class="no-image">
-						画像なし
-					</div>
-				</c:otherwise>
-			</c:choose>
-		</div>
+		<div class="product-detail-card">
 
-		<div class="product-detail-info">
-
-			<h2>${product.productName}</h2>
-
-			<p class="product-detail-price">
-				${product.price}円
-			</p>
-
-			<p>
-				カテゴリ：
+			<div class="product-detail-image-area">
 				<c:choose>
-					<c:when test="${product.category == 'sharp_pen'}">シャーペン</c:when>
-					<c:when test="${product.category == 'ballpen'}">ボールペン</c:when>
-					<c:when test="${product.category == 'multi_ballpen'}">多機能ペン</c:when>
-					<c:when test="${product.category == 'other'}">その他</c:when>
-					<c:otherwise>${product.category}</c:otherwise>
+					<c:when test="${not empty product.imagePath}">
+						<img class="product-detail-image"
+							src="${pageContext.request.contextPath}/${product.imagePath}"
+							alt="${product.productName}">
+					</c:when>
+
+					<c:otherwise>
+						<div class="no-image">画像なし</div>
+					</c:otherwise>
 				</c:choose>
-			</p>
+			</div>
 
-			<p>
-				在庫：${product.stock}個
-			</p>
+			<div class="product-detail-info">
 
-			<p class="product-detail-description">
-				${product.description}
-			</p>
+				<h2>${product.productName}</h2>
 
-			<div class="product-detail-button-area">
+				<p class="product-detail-price">${product.price}円</p>
 
-				<button type="button" onclick="history.back();">
-					戻る
-				</button>
+				<p>
+					カテゴリ：
+					<c:choose>
+						<c:when test="${product.category == 'sharp_pen'}">シャーペン</c:when>
+						<c:when test="${product.category == 'ballpen'}">ボールペン</c:when>
+						<c:when test="${product.category == 'multi_ballpen'}">多機能ペン</c:when>
+						<c:when test="${product.category == 'other'}">その他</c:when>
+						<c:otherwise>${product.category}</c:otherwise>
+					</c:choose>
+				</p>
 
-				<form action="${pageContext.request.contextPath}/ProductInsert.action"
-					method="post">
+				<p>在庫：${product.stock}個</p>
 
-					<input type="hidden" name="productName"
-						value="${product.productName}">
-					<input type="hidden" name="category"
-						value="${product.category}">
-					<input type="hidden" name="price"
-						value="${product.price}">
-					<input type="hidden" name="stock"
-						value="${product.stock}">
-					<input type="hidden" name="description"
-						value="${product.description}">
-					<input type="hidden" name="imagePath"
-						value="${product.imagePath}">
+				<p class="product-detail-description">${product.description}</p>
 
-					<input type="submit" value="登録する">
-				</form>
+				<div class="product-detail-button-area">
+
+					<button type="button" onclick="history.back();">戻る</button>
+
+					<form
+						action="${pageContext.request.contextPath}/ProductInsert.action"
+						method="post">
+
+						<input type="hidden" name="productName"
+							value="${product.productName}"> <input type="hidden"
+							name="category" value="${product.category}"> <input
+							type="hidden" name="price" value="${product.price}"> <input
+							type="hidden" name="stock" value="${product.stock}"> <input
+							type="hidden" name="description" value="${product.description}">
+
+						<input type="hidden" name="imagePath" value="${product.imagePath}">
+
+						<input type="submit" value="登録する">
+					</form>
+
+				</div>
 
 			</div>
 
@@ -91,6 +103,7 @@
 
 	</div>
 
-</div>
+	<%@include file="../HeaderFooter/footer.jsp"%>
 
-<%@include file="../HeaderFooter/footer.jsp"%>
+</body>
+</html>

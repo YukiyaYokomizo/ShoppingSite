@@ -40,7 +40,7 @@ public class InsertAdminAction extends Action {
 		try {
 			dao.insertAdmin(memberId, password, lastName, firstName, address, mailAddress);
 
-			return "redirect:admin-menu.jsp";
+			return "redirect:/ProductManage.action";
 
 		} catch (SQLIntegrityConstraintViolationException e) {
 			request.setAttribute("errorMessage", "このIDはすでに使用されています。");

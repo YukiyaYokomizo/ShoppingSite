@@ -1,16 +1,17 @@
-
 package jp.co.aforce.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("*.action")
+@MultipartConfig
 public class FrontController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -21,7 +22,9 @@ public class FrontController extends HttpServlet {
 
 			String path = request.getServletPath().substring(1);
 			String name = "jp.co.aforce.servlet." + path.replace(".a", "A").replace("/", ".");
+
 			Action action = (Action) Class.forName(name).getDeclaredConstructor().newInstance();
+
 			String url = action.execute(request, response);
 
 			if (url.startsWith("redirect:")) {

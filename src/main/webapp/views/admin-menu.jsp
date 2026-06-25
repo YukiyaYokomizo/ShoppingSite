@@ -39,7 +39,7 @@ if (session.getAttribute("user") == null) {
 		<%@include file="../HeaderFooter/header.jsp"%>
 	</header>
 
-	<div class="product-page">
+	<div class="product-page admin-page">
 
 		<c:if test="${not empty name}">
 			<p class="admin-search-result">「${name}」の管理者検索結果</p>
