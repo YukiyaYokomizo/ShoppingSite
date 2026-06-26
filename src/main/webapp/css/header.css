@@ -83,13 +83,13 @@ body::before {
 }
 
 /* 検索欄と検索ボタンを横並び */
-.site-search form > div {
+.site-search form>div {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
 
-.site-search form > div > div {
+.site-search form>div>div {
 	margin: 0;
 }
 
@@ -130,7 +130,7 @@ body::before {
 }
 
 /* 未ログイン時の中身 */
-.site-menu > div {
+.site-menu>div {
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -308,12 +308,10 @@ body::before {
 	width: 60%;
 	height: 100%;
 
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(255, 255, 255, 0.75),
-		transparent
-	);
+	background: linear-gradient(90deg,
+			transparent,
+			rgba(255, 255, 255, 0.75),
+			transparent);
 
 	transform: skewX(-20deg);
 	transition: left 0.45s ease;
@@ -335,4 +333,91 @@ body::before {
 	.category-nav-item {
 		font-size: 15px;
 	}
+}
+
+/* =========================
+   ヘッダー検索ボタン：インク色に変更
+========================= */
+
+.header input[type="submit"],
+.header button[type="submit"] {
+	background-color: #263238;
+	color: #fff;
+	border: none;
+}
+
+.header input[type="submit"]:hover,
+.header button[type="submit"]:hover {
+	background-color: #1b252b;
+}
+
+/* =========================
+   ヘッダーロゴ画像サイズ調整
+========================= */
+
+.site-logo {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+
+	height: 72px;
+	overflow: hidden;
+}
+
+.site-logo-link {
+	display: flex;
+	align-items: center;
+
+	height: 72px;
+	text-decoration: none;
+}
+
+.site-logo-image {
+	width: 220px !important;
+	height: 64px !important;
+
+	display: block;
+	object-fit: contain;
+}
+
+/* =========================
+   ヘッダー高さ調整
+   ロゴサイズは変えず、下線だけ下げる
+========================= */
+
+body {
+	padding-top: 88px !important;
+}
+
+body::before {
+	height: 88px !important;
+}
+
+.site-logo,
+.site-logo-link,
+.site-search,
+.site-menu {
+	height: 88px !important;
+}
+
+.site-logo-image {
+	width: 220px !important;
+	height: 64px !important;
+	object-fit: contain !important;
+}
+
+/* =========================
+   ヘッダー検索ボタン色を全ページで統一
+========================= */
+
+.site-search input[type="submit"],
+.site-search button[type="submit"] {
+	background-color: #263238 !important;
+	color: #fff !important;
+	border: none !important;
+}
+
+.site-search input[type="submit"]:hover,
+.site-search button[type="submit"]:hover {
+	background-color: #1b252b !important;
 }

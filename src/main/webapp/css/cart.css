@@ -323,3 +323,37 @@
 	color: #c0392b;
 	font-weight: bold;
 }
+/* =========================
+   カート空状態のボタン修正
+========================= */
+.cart-empty a {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	min-width: 220px !important;
+	height: 54px !important;
+	padding: 0 24px !important;
+
+	border: 1px solid #d8cfc0 !important;
+	border-radius: 999px !important;
+	background: #fffaf1 !important;
+	color: #5b4636 !important;
+
+	font-size: 17px !important;
+	font-weight: 800 !important;
+	text-decoration: none !important;
+
+	box-shadow: 0 6px 16px rgba(80, 58, 28, 0.08) !important;
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease !important;
+}
+
+.cart-empty a:hover {
+	background: #f7ecd8 !important;
+	color: #4a382c !important;
+	transform: translateY(-2px) !important;
+	box-shadow: 0 10px 20px rgba(80, 58, 28, 0.12) !important;
+}

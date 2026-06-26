@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+/* =========================
+   完了・確認・エラーメッセージ共通
+========================= */
+
+body {
+	background: #f8f5ee;
+}
+
+.message-page {
+	min-height: calc(100vh - 180px);
+	padding: 64px 20px 90px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	box-sizing: border-box;
+	background:
+		radial-gradient(circle at top left, rgba(255, 230, 170, 0.35) 0, rgba(255, 230, 170, 0) 280px),
+		radial-gradient(circle at bottom right, rgba(218, 165, 105, 0.16) 0, rgba(218, 165, 105, 0) 300px),
+		linear-gradient(to bottom, #fffaf1 0%, #f8f5ee 100%);
+}
+
+.message-card {
+	width: min(620px, 92%);
+	padding: 48px 52px 46px;
+
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid #eadfce;
+	border-radius: 30px;
+
+	text-align: center;
+	box-shadow: 0 12px 32px rgba(80, 58, 28, 0.10);
+
+	box-sizing: border-box;
+}
+
+.message-icon {
+	width: 72px;
+	height: 72px;
+	margin: 0 auto 24px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50%;
+
+	font-size: 34px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.message-icon-success {
+	background: #fff1c8;
+	color: #7a4d00;
+}
+
+.message-icon-warning {
+	background: #fff1c8;
+	color: #7a4d00;
+}
+
+.message-icon-error {
+	background: #ffe8e4;
+	color: #b03a2e;
+}
+
+.message-title {
+	margin: 0 0 18px;
+
+	font-family: "Yomogi", "Klee One", cursive;
+	font-size: 42px;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	line-height: 1.35;
+	color: #263238;
+}
+
+.message-text {
+	margin: 0 0 34px;
+
+	font-size: 17px;
+	line-height: 1.9;
+	color: #5b4636;
+}
+
+.message-button-area {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.message-button {
+	min-width: 170px;
+	height: 52px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0 24px;
+	border-radius: 999px;
+
+	font-size: 16px;
+	font-weight: 800;
+	text-decoration: none;
+	box-sizing: border-box;
+
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+/* メインボタン */
+.message-button-main {
+	background: linear-gradient(135deg, #f59e0b 0%, #e27b22 100%);
+	color: #fff;
+	box-shadow: 0 8px 18px rgba(226, 123, 34, 0.24);
+}
+
+.message-button-main:hover {
+	background: linear-gradient(135deg, #f7ae2b 0%, #d96f18 100%);
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px rgba(226, 123, 34, 0.30);
+}
+
+/* 戻る・キャンセル系 */
+.message-button-sub {
+	background: #ffffff;
+	color: #5b4636;
+	border: 1px solid #d8cfc0;
+	box-shadow: 0 5px 14px rgba(80, 58, 28, 0.07);
+}
+
+.message-button-sub:hover {
+	background: #fff7e8;
+	transform: translateY(-2px);
+	box-shadow: 0 9px 18px rgba(80, 58, 28, 0.10);
+}
+
+/* ログアウト・削除系 */
+.message-button-danger {
+	background: #263238;
+	color: #fff;
+	box-shadow: 0 8px 18px rgba(38, 50, 56, 0.20);
+}
+
+.message-button-danger:hover {
+	background: #1b252b;
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px rgba(38, 50, 56, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+	.message-card {
+		padding: 38px 24px 36px;
+		border-radius: 24px;
+	}
+
+	.message-title {
+		font-size: 32px;
+	}
+
+	.message-text {
+		font-size: 15px;
+	}
+
+	.message-button {
+		width: 100%;
+	}
+}

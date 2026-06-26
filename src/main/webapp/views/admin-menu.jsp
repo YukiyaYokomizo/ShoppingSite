@@ -21,7 +21,8 @@ if (session.getAttribute("user") == null) {
 	href="${pageContext.request.contextPath}/css/login.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/admin-fix.css">
 <script>
 	window.addEventListener("pageshow", function(event) {
 		const nav = performance.getEntriesByType("navigation")[0];

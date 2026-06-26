@@ -1,0 +1,342 @@
+@charset "UTF-8";
+
+/* ========================================
+   商品詳細ページ：文房具サイト風
+   色は「紙・鉛筆・インク」寄り
+======================================== */
+
+body {
+	background: #f8f5ee;
+}
+
+/* ページ全体 */
+.product-detail-page {
+	width: min(1200px, 92%) !important;
+	margin: 46px auto 90px !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+/* 商品詳細カード */
+.product-detail-card {
+	position: relative;
+	display: grid !important;
+	grid-template-columns: 430px minmax(0, 1fr) !important;
+	gap: 56px !important;
+
+	padding: 54px 58px !important;
+	border: 1px solid #ebe2d2 !important;
+	border-radius: 30px !important;
+	background:
+		linear-gradient(135deg, #fff9ec 0%, #ffffff 44%, #fff4df 100%) !important;
+
+	box-shadow: 0 12px 32px rgba(80, 58, 28, 0.10) !important;
+	overflow: hidden !important;
+	box-sizing: border-box !important;
+}
+
+/* 紙・鉛筆っぽい背景装飾 */
+.product-detail-card::before {
+	content: "";
+	position: absolute;
+	top: -80px;
+	right: -70px;
+	width: 230px;
+	height: 230px;
+	background: rgba(244, 176, 69, 0.16);
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+.product-detail-card::after {
+	content: "";
+	position: absolute;
+	bottom: -90px;
+	left: -80px;
+	width: 230px;
+	height: 230px;
+	background: rgba(214, 137, 72, 0.10);
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+/* 画像エリア */
+.product-detail-image-area {
+	position: relative;
+	z-index: 1;
+
+	width: 100% !important;
+	min-height: 430px !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	padding: 24px !important;
+	border: 1px solid #eadfce !important;
+	border-radius: 24px !important;
+	background: rgba(255, 255, 255, 0.82) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+
+	box-sizing: border-box !important;
+}
+
+/* 商品画像 */
+.product-detail-image {
+	width: 100% !important;
+	max-width: 360px !important;
+	height: 360px !important;
+
+	object-fit: contain !important;
+	border: none !important;
+	border-radius: 18px !important;
+	background: #fff !important;
+	display: block !important;
+}
+
+/* 画像なし */
+.no-image {
+	width: 100% !important;
+	max-width: 360px !important;
+	height: 360px !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	border: 2px dashed #d8c9b4 !important;
+	border-radius: 18px !important;
+	background: #fffaf1 !important;
+	color: #9a8a76 !important;
+	font-weight: bold !important;
+	box-sizing: border-box !important;
+}
+
+/* 商品情報 */
+.product-detail-info {
+	position: relative;
+	z-index: 1;
+
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+
+	text-align: left !important;
+	min-width: 0 !important;
+}
+
+/* 商品名 */
+.product-detail-info h2 {
+	margin: 0 0 24px !important;
+
+	font-size: 42px !important;
+	font-weight: 800 !important;
+	line-height: 1.35 !important;
+	letter-spacing: 0.03em !important;
+	color: #263238 !important;
+}
+
+/* 価格：緑ではなく紙タグ風 */
+.product-detail-price {
+	width: fit-content !important;
+	margin: 0 0 24px !important;
+	padding: 8px 18px !important;
+
+	border-radius: 999px !important;
+	background: #fff1c8 !important;
+
+	color: #7a4d00 !important;
+	font-size: 26px !important;
+	font-weight: 800 !important;
+}
+
+/* 基本情報 */
+.product-detail-info p {
+	margin: 0 0 14px !important;
+	font-size: 16px !important;
+	line-height: 1.8 !important;
+	color: #3d4650 !important;
+}
+
+/* 説明文 */
+.product-detail-description {
+	margin: 22px 0 28px !important;
+	padding: 22px 24px !important;
+
+	border: 1px solid #eadfce !important;
+	border-radius: 18px !important;
+	background: rgba(255, 255, 255, 0.78) !important;
+
+	font-size: 17px !important;
+	line-height: 2 !important;
+	color: #3d4650 !important;
+}
+
+/* 数量 */
+.product-detail-info form {
+	margin: 0 !important;
+}
+
+.product-detail-info label,
+.product-detail-info .quantity-label {
+	font-size: 16px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+
+.product-detail-info input[type="number"] {
+	width: 82px !important;
+	height: 42px !important;
+
+	margin: 0 10px !important;
+	padding: 0 10px !important;
+
+	border: 1px solid #d2c5b3 !important;
+	border-radius: 12px !important;
+	background: #fff !important;
+
+	font-size: 17px !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	box-sizing: border-box !important;
+}
+
+/* ボタンエリア */
+.product-detail-button-area {
+	display: flex !important;
+	align-items: center !important;
+	flex-wrap: wrap !important;
+	gap: 18px !important;
+
+	margin-top: 28px !important;
+}
+
+.product-detail-button-area form {
+	margin: 0 !important;
+}
+
+/* 共通ボタン */
+.product-detail-button-area input[type="submit"],
+.product-detail-button-area a {
+	width: 190px !important;
+	height: 54px !important;
+
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	padding: 0 22px !important;
+	border-radius: 999px !important;
+
+	font-size: 17px !important;
+	font-weight: 800 !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease !important;
+}
+
+/* カートに入れる：鉛筆オレンジ */
+.product-detail-button-area input[type="submit"] {
+	border: none !important;
+	background: linear-gradient(135deg, #f59e0b 0%, #e27b22 100%) !important;
+	color: #fff !important;
+	box-shadow: 0 8px 18px rgba(226, 123, 34, 0.24) !important;
+}
+
+/* 商品一覧へ戻る：中立色 */
+.product-detail-button-area a {
+	background: #ffffff !important;
+	color: #3f4650 !important;
+	border: 1px solid #d8cfc0 !important;
+	box-shadow: 0 5px 14px rgba(80, 58, 28, 0.07) !important;
+}
+
+/* hover */
+.product-detail-button-area input[type="submit"]:hover {
+	background: linear-gradient(135deg, #f7ae2b 0%, #d96f18 100%) !important;
+	transform: translateY(-2px) !important;
+	box-shadow: 0 12px 24px rgba(226, 123, 34, 0.30) !important;
+}
+
+.product-detail-button-area a:hover {
+	background: #fff7e8 !important;
+	transform: translateY(-2px) !important;
+	box-shadow: 0 9px 18px rgba(80, 58, 28, 0.10) !important;
+	opacity: 1 !important;
+}
+
+/* カート追加メッセージ */
+.cart-message {
+	border-radius: 999px !important;
+	background: rgba(38, 50, 56, 0.94) !important;
+	box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* ========================================
+   レスポンシブ
+======================================== */
+
+@media screen and (max-width: 1000px) {
+	.product-detail-card {
+		grid-template-columns: 1fr !important;
+		gap: 34px !important;
+		padding: 38px 30px !important;
+	}
+
+	.product-detail-image-area {
+		min-height: 340px !important;
+	}
+
+	.product-detail-image,
+	.no-image {
+		height: 300px !important;
+	}
+
+	.product-detail-info h2 {
+		font-size: 34px !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.product-detail-page {
+		width: 94% !important;
+		margin: 28px auto 64px !important;
+	}
+
+	.product-detail-card {
+		padding: 26px 18px !important;
+		border-radius: 22px !important;
+	}
+
+	.product-detail-image-area {
+		min-height: 260px !important;
+		padding: 16px !important;
+	}
+
+	.product-detail-image,
+	.no-image {
+		height: 230px !important;
+	}
+
+	.product-detail-info h2 {
+		font-size: 28px !important;
+	}
+
+	.product-detail-price {
+		font-size: 22px !important;
+	}
+
+	.product-detail-button-area {
+		flex-direction: column !important;
+		align-items: stretch !important;
+	}
+
+	.product-detail-button-area input[type="submit"],
+	.product-detail-button-area a {
+		width: 100% !important;
+	}
+}

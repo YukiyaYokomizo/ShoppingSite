@@ -11,8 +11,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/login.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
 </head>
 
@@ -28,19 +26,20 @@
 
 		<c:choose>
 			<c:when test="${empty name}">
-				<p>検索キーワードが入力されていません。</p>
+				<p class="search-result-message">検索キーワードが入力されていません。</p>
 			</c:when>
+
 			<c:otherwise>
-				<p>「${name}」の検索結果</p>
+				<p class="search-result-message">「${name}」の検索結果</p>
 			</c:otherwise>
 		</c:choose>
 
-		<form class="product-sort-form"
+		<form class="sort-form"
 			action="${pageContext.request.contextPath}/ProductSearch.action"
 			method="get">
 
 			<input type="hidden" name="name" value="${name}"> <label
-				for="sort">並び替え：</label> <select id="sort" name="sort"
+				for="sort">並べ替え：</label> <select id="sort" name="sort"
 				onchange="this.form.submit()">
 				<option value="new" ${empty sort || sort == 'new' ? 'selected' : ''}>
 					新着順</option>
@@ -54,68 +53,52 @@
 
 		</form>
 
-		<c:if test="${empty productsList}">
-			<p>該当する商品はありません。</p>
-		</c:if>
+		<c:choose>
+			<c:when test="${empty productsList}">
+				<p class="search-result-empty">該当する商品はありません。</p>
+			</c:when>
 
-		<div class="product-list">
+			<c:otherwise>
 
-			<c:forEach var="product" items="${productsList}">
+				<div class="product-list">
 
-				<a class="product-card-link"
-					href="${pageContext.request.contextPath}/ProductDetail.action?productId=${product.productId}">
+					<c:forEach var="product" items="${productsList}">
 
-					<div class="product-card">
+						<a class="product-card-link"
+							href="${pageContext.request.contextPath}/ProductDetail.action?productId=${product.productId}">
 
-						<div class="product-card-image-area">
-							<c:choose>
-								<c:when test="${not empty product.imagePath}">
-									<img class="product-card-image"
-										src="${pageContext.request.contextPath}/${product.imagePath}"
-										alt="${product.productName}">
-								</c:when>
+							<div class="product-card">
 
-								<c:otherwise>
-									<div class="product-card-no-image">画像なし</div>
-								</c:otherwise>
-							</c:choose>
-						</div>
+								<div class="product-card-image-area">
+									<c:choose>
+										<c:when test="${not empty product.imagePath}">
+											<img class="product-card-image"
+												src="${pageContext.request.contextPath}/${product.imagePath}"
+												alt="${product.productName}">
+										</c:when>
 
-						<p class="product-name">${product.productName}</p>
+										<c:otherwise>
+											<div class="product-card-no-image">画像なし</div>
+										</c:otherwise>
+									</c:choose>
+								</div>
 
-						<p class="product-category">
-							<c:choose>
-								<c:when test="${product.category == 'sharp_pen'}">
-						シャーペン
-					</c:when>
-								<c:when test="${product.category == 'ballpen'}">
-						ボールペン
-					</c:when>
-								<c:when test="${product.category == 'multi_ballpen'}">
-						多機能ペン
-					</c:when>
-								<c:when test="${product.category == 'other'}">
-						その他
-					</c:when>
-								<c:otherwise>
-						${product.category}
-					</c:otherwise>
-							</c:choose>
-						</p>
+								<p class="product-name">${product.productName}</p>
 
-						<p class="product-price">${product.price}円</p>
+								<p class="product-price">${product.price}円</p>
 
-						<div class="product-button-area">
-							<span class="product-detail-text">詳細を見る</span>
-						</div>
+								<p class="product-stock">在庫：${product.stock}個</p>
 
-					</div>
+							</div>
 
-				</a>
+						</a>
 
-			</c:forEach>
+					</c:forEach>
 
-		</div>
+				</div>
+
+			</c:otherwise>
+		</c:choose>
 
 	</div>
 

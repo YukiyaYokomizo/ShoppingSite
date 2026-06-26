@@ -8,7 +8,8 @@
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/product.css">
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/product-detail-fix.css">
 <div class="product-detail-page">
 
 	<%@include file="../HeaderFooter/category-nav.jsp"%>

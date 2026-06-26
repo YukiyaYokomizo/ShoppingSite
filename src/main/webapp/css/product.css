@@ -1278,3 +1278,38 @@ textarea {
 .purchase-history-button-area a:hover {
 	background-color: #257d46;
 }
+
+/* =========================
+   購入履歴タイトル：鉛筆っぽい文字に統一
+========================= */
+
+.purchase-history-page h2 {
+	font-family: "Yomogi", "Klee One", cursive !important;
+	font-size: 46px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.16em !important;
+	line-height: 1.3 !important;
+	color: #333 !important;
+	text-align: center !important;
+	margin: 0 0 40px !important;
+}
+
+/* =========================
+   検索結果メッセージ位置調整
+========================= */
+
+.product-page .search-result-message {
+	width: min(1100px, 92%);
+	margin: 0 auto 18px;
+
+	font-size: 16px;
+	color: #444;
+	text-align: left;
+}
+.product-page .search-result-empty {
+	width: min(1100px, 92%);
+	margin: 32px auto;
+	font-size: 16px;
+	color: #555;
+	text-align: left;
+}

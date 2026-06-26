@@ -1,0 +1,445 @@
+@charset "UTF-8";
+
+/* =========================
+   管理画面専用 上書きCSS
+   product.css は直接触らない
+========================= */
+
+.admin-page {
+	width: min(1700px, 96%) !important;
+	margin: 0 auto 80px !important;
+}
+
+/* =========================
+   左右レイアウト
+========================= */
+
+.admin-page .admin-manage-layout {
+	width: 100% !important;
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) 430px !important;
+	column-gap: 42px !important;
+	align-items: start !important;
+	box-sizing: border-box !important;
+}
+
+.admin-page .admin-product-area,
+.admin-page .admin-article-area {
+	min-width: 0 !important;
+	display: flex !important;
+	flex-direction: column !important;
+	box-sizing: border-box !important;
+}
+
+/* 記事側は白いカード箱ではなく、左線だけにする */
+.admin-page .admin-article-area {
+	background: none !important;
+	border-top: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+	border-left: 1px solid #d7d7d7 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	padding: 0 0 0 34px !important;
+}
+
+/* =========================
+   タイトル
+========================= */
+
+.admin-page .admin-product-title,
+.admin-page .admin-article-title-main {
+	height: 110px !important;
+	margin: 0 !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+
+	font-family: "Yomogi", "Klee One", cursive !important;
+	font-size: 44px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.16em !important;
+	line-height: 1.2 !important;
+	color: #333 !important;
+	text-align: center !important;
+}
+
+/* =========================
+   フィルター
+========================= */
+
+.admin-page .admin-filter-form,
+.admin-page .admin-article-filter-form {
+	height: 44px !important;
+	min-height: 44px !important;
+	margin: 0 !important;
+
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 8px !important;
+
+	font-size: 16px !important;
+	white-space: nowrap !important;
+	box-sizing: border-box !important;
+}
+
+.admin-page .admin-filter-form label,
+.admin-page .admin-article-filter-form label {
+	margin: 0 !important;
+	color: #333 !important;
+	font-weight: normal !important;
+}
+
+.admin-page .admin-filter-form select,
+.admin-page .admin-article-filter-form select {
+	height: 36px !important;
+	padding: 4px 10px !important;
+	font-size: 15px !important;
+	box-sizing: border-box !important;
+}
+
+/* =========================
+   一覧エリア
+========================= */
+
+.admin-page .admin-product-list,
+.admin-page .admin-article-list {
+	margin-top: 24px !important;
+	box-sizing: border-box !important;
+}
+
+.admin-page .admin-product-list {
+	width: 100% !important;
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(260px, 1fr)) !important;
+	gap: 24px !important;
+	align-items: stretch !important;
+}
+
+.admin-page .admin-article-list {
+	width: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 24px !important;
+}
+
+/* =========================
+   商品追加・記事追加カードを統一
+========================= */
+
+.admin-page .admin-product-list > .product-add-card,
+.admin-page .admin-article-list > .admin-article-add-card {
+	width: 100% !important;
+	height: 320px !important;
+	min-height: 320px !important;
+
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 16px !important;
+
+	padding: 0 !important;
+	margin: 0 !important;
+
+	border: 2px dashed #999 !important;
+	border-radius: 18px !important;
+	background-color: #fff !important;
+
+	color: #333 !important;
+	text-decoration: none !important;
+	font-weight: bold !important;
+
+	box-sizing: border-box !important;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease !important;
+}
+
+.admin-page .admin-product-list > .product-add-card:hover,
+.admin-page .admin-article-list > .admin-article-add-card:hover {
+	border-color: #2e9b57 !important;
+	background-color: #eef8f1 !important;
+	color: #2e9b57 !important;
+	transform: translateY(-3px) !important;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10) !important;
+	opacity: 1 !important;
+}
+
+/* ＋マーク */
+.admin-page .product-add-icon,
+.admin-page .admin-article-plus {
+	margin: 0 !important;
+	padding: 0 !important;
+
+	font-size: 52px !important;
+	line-height: 1 !important;
+	font-weight: 400 !important;
+	color: inherit !important;
+}
+
+/* 追加テキスト */
+.admin-page .product-add-text,
+.admin-page .admin-article-add-text {
+	margin: 0 !important;
+	padding: 0 !important;
+
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: inherit !important;
+}
+
+/* hover時の中身 */
+.admin-page .admin-product-list > .product-add-card:hover .product-add-icon,
+.admin-page .admin-product-list > .product-add-card:hover .product-add-text,
+.admin-page .admin-article-list > .admin-article-add-card:hover .admin-article-plus,
+.admin-page .admin-article-list > .admin-article-add-card:hover .admin-article-add-text {
+	color: #2e9b57 !important;
+}
+
+/* =========================
+   商品カード・記事カードの高さ統一
+========================= */
+
+.admin-page .admin-product-card,
+.admin-page .admin-article-card {
+	min-height: 320px !important;
+
+	display: flex !important;
+	flex-direction: column !important;
+
+	box-sizing: border-box !important;
+}
+
+/* 商品カード */
+.admin-page .admin-product-card {
+	width: 100% !important;
+	padding: 18px !important;
+	border: 1px solid #ddd !important;
+	border-radius: 10px !important;
+	background-color: #fff !important;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+	text-align: left !important;
+}
+
+/* 記事カード */
+.admin-page .admin-article-card {
+	width: 100% !important;
+	padding: 18px !important;
+	border: 1px solid #ddd !important;
+	border-radius: 10px !important;
+	background-color: #fff !important;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+	text-align: left !important;
+}
+
+/* =========================
+   商品カード内
+========================= */
+
+.admin-page .admin-product-card .product-name {
+	min-height: 52px !important;
+	margin: 0 0 10px !important;
+
+	font-size: 17px !important;
+	font-weight: bold !important;
+	line-height: 1.5 !important;
+	color: #333 !important;
+
+	display: -webkit-box !important;
+	-webkit-line-clamp: 2 !important;
+	-webkit-box-orient: vertical !important;
+	overflow: hidden !important;
+}
+
+.admin-page .admin-product-card .product-category,
+.admin-page .admin-product-card .product-status,
+.admin-page .admin-product-card .product-stock,
+.admin-page .admin-product-card .product-sales {
+	margin: 0 0 8px !important;
+	font-size: 14px !important;
+	line-height: 1.5 !important;
+	color: #555 !important;
+}
+
+.admin-page .admin-product-card .product-price {
+	margin: 4px 0 8px !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+
+.admin-page .admin-product-button-area {
+	margin-top: auto !important;
+	padding-top: 20px !important;
+	width: 100% !important;
+
+	display: flex !important;
+	justify-content: center !important;
+}
+
+.admin-page .admin-product-button-area a {
+	display: block !important;
+	width: 85% !important;
+	padding: 12px 0 !important;
+
+	border-radius: 10px !important;
+	background-color: #2e9b57 !important;
+
+	color: #fff !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+
+	box-sizing: border-box !important;
+	transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.admin-page .admin-product-button-area a:hover {
+	background-color: #257d46 !important;
+	transform: translateY(-1px) !important;
+	opacity: 1 !important;
+}
+
+/* =========================
+   記事カード内
+========================= */
+
+.admin-page .admin-article-category {
+	width: fit-content !important;
+	display: inline-block !important;
+
+	margin: 0 0 10px !important;
+	padding: 3px 10px !important;
+
+	border-radius: 999px !important;
+	background-color: #f0f0f0 !important;
+
+	color: #555 !important;
+	font-size: 12px !important;
+	line-height: 1.4 !important;
+}
+
+.admin-page .admin-article-title {
+	min-height: 54px !important;
+	margin: 0 0 10px !important;
+
+	font-size: 18px !important;
+	font-weight: bold !important;
+	line-height: 1.5 !important;
+	color: #222 !important;
+
+	display: -webkit-box !important;
+	-webkit-line-clamp: 2 !important;
+	-webkit-box-orient: vertical !important;
+	overflow: hidden !important;
+}
+
+.admin-page .admin-article-summary {
+	min-height: 45px !important;
+	margin: 0 0 14px !important;
+
+	font-size: 14px !important;
+	line-height: 1.6 !important;
+	color: #555 !important;
+
+	display: -webkit-box !important;
+	-webkit-line-clamp: 2 !important;
+	-webkit-box-orient: vertical !important;
+	overflow: hidden !important;
+}
+
+.admin-page .admin-article-status {
+	margin: 0 0 14px !important;
+	font-size: 13px !important;
+	color: #555 !important;
+}
+
+.admin-page .admin-article-edit-button {
+	margin-top: auto !important;
+
+	display: block !important;
+	width: 100% !important;
+	padding: 12px 0 !important;
+
+	border-radius: 10px !important;
+	background-color: #2e9b57 !important;
+
+	color: #fff !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	font-weight: bold !important;
+
+	box-sizing: border-box !important;
+	transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.admin-page .admin-article-edit-button:hover {
+	background-color: #257d46 !important;
+	transform: translateY(-1px) !important;
+	opacity: 1 !important;
+}
+
+/* 記事なし文言 */
+.admin-page .admin-article-empty {
+	margin: 18px 0 0 !important;
+	color: #555 !important;
+	font-size: 15px !important;
+	text-align: center !important;
+}
+
+/* =========================
+   レスポンシブ
+========================= */
+
+@media screen and (max-width: 1200px) {
+	.admin-page .admin-manage-layout {
+		grid-template-columns: 1fr !important;
+	}
+
+	.admin-page .admin-article-area {
+		border-left: none !important;
+		border-top: 1px solid #d7d7d7 !important;
+		padding: 36px 0 0 !important;
+	}
+
+	.admin-page .admin-product-list {
+		grid-template-columns: repeat(2, minmax(240px, 1fr)) !important;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.admin-page .admin-product-title,
+	.admin-page .admin-article-title-main {
+		height: auto !important;
+		min-height: 80px !important;
+		font-size: 34px !important;
+	}
+
+	.admin-page .admin-filter-form,
+	.admin-page .admin-article-filter-form {
+		height: auto !important;
+		flex-wrap: wrap !important;
+		justify-content: center !important;
+	}
+
+	.admin-page .admin-product-list {
+		grid-template-columns: 1fr !important;
+	}
+
+	.admin-page .admin-product-list > .product-add-card,
+	.admin-page .admin-article-list > .admin-article-add-card,
+	.admin-page .admin-product-card,
+	.admin-page .admin-article-card {
+		min-height: 260px !important;
+		height: auto !important;
+	}
+}

@@ -18,9 +18,8 @@ if (request.getAttribute("article") == null) {
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/login.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/top.css">
+	href="${pageContext.request.contextPath}/css/article-detail.css">
+
 </head>
 
 <body>
@@ -29,25 +28,52 @@ if (request.getAttribute("article") == null) {
 		<%@include file="../HeaderFooter/header.jsp"%>
 	</header>
 
-	<main class="article-detail-page">
+	<main class="article-page">
 
-		<article class="article-detail-card">
+		<div class="article-container">
 
-			<p class="article-detail-category">${article.category}</p>
-
-			<h1 class="article-detail-title">${article.title}</h1>
-		
-			<div class="article-detail-content">
-				${article.content}
+			<div class="article-breadcrumb">
+				<a href="${pageContext.request.contextPath}/Top.action">トップ</a> <span>›</span>
+				<a
+					href="${pageContext.request.contextPath}/Top.action#recommended-articles">
+					おすすめ記事 </a> <span>›</span> <span class="article-breadcrumb-current">${article.title}</span>
 			</div>
+			<article class="article-card">
 
-			<div class="article-detail-button-area">
-				<a href="${pageContext.request.contextPath}/Top.action">
-					トップへ戻る
-				</a>
-			</div>
+				<section class="article-hero">
+					<div class="article-hero-inner">
+						<h1 class="article-title">${article.title}</h1>
 
-		</article>
+						<c:if test="${not empty article.summary}">
+							<p class="article-summary">${article.summary}</p>
+						</c:if>
+
+					</div>
+				</section>
+
+				<section class="article-content-section">
+
+					<div class="article-point-box">
+						<div class="article-point-label">POINT</div>
+						<div class="article-point-text">
+							文房具選びに迷ったときに、すぐ参考にできる読みやすいガイドです。</div>
+					</div>
+
+					<div class="article-body-card">
+						<h2 class="article-section-title">記事本文</h2>
+						<div class="article-content-text">${article.content}</div>
+					</div>
+
+				</section>
+
+				<div class="article-back-area">
+					<a class="article-back-button"
+						href="${pageContext.request.contextPath}/Top.action"> トップへ戻る </a>
+				</div>
+
+			</article>
+
+		</div>
 
 	</main>
 

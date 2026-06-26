@@ -16,7 +16,6 @@ if (request.getAttribute("articlesList") == null) {
 <title>トップページ</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/header.css">
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login.css">
 <link rel="stylesheet"
@@ -73,7 +72,7 @@ if (request.getAttribute("articlesList") == null) {
 
 		<%@include file="../HeaderFooter/category-nav.jsp"%>
 
-		<section class="top-article-section">
+		<section id="recommended-articles" class="top-article-section">
 			<h2 class="top-article-heading">おすすめ記事</h2>
 
 			<c:if test="${empty articlesList}">
@@ -116,11 +115,6 @@ if (request.getAttribute("articlesList") == null) {
 				</c:forEach>
 			</div>
 		</section>
-
-		<div>ランキングを貼ります。ページの右側に置きます。</div>
-
-
-		<div>お知らせの一覧を表示します。</div>
 	</main>
 	<script>
 	const sliderTrack = document.getElementById("topSliderTrack");
